@@ -38,13 +38,10 @@ app.use(express.static(path.join(__dirname, 'public/home'),{
   maxAge:864000
 }));
 app.use('/home', home);
-app.use(express.static(path.join(__dirname, 'public/reactspa/static/media'),{
-  maxAge:864000
-}));
 app.use(express.static(path.join(__dirname, 'public'),{
   maxAge:864000
 }));
-app.use('/reactspa', reactspa);
+app.use('/reactspa',reactspa);
 
 app.get('/weather/:city', (req,res,next)=>{
   let city = req.params.city;
