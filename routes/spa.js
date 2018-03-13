@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path')
 // const root = {root:path.join(__dirname,'../public/html')}
-const home = {root:path.join(__dirname,'../public/reactspa')}
+const home = {root:path.join(__dirname,'../public/reactSPA')}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
