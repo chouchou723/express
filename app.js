@@ -38,6 +38,9 @@ app.use(express.static(path.join(__dirname, 'public/home'),{
   maxAge:864000
 }));
 app.use('/home', home);
+app.use(express.static(path.join(__dirname, 'public/reactspa/static/media'),{
+  maxAge:864000
+}));
 app.use(express.static(path.join(__dirname, 'public'),{
   maxAge:864000
 }));
