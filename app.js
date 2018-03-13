@@ -30,16 +30,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public/Portfolio-page'),{
-  maxAge:0
+  maxAge:864000
 }));
 app.use('/', index);
 
 app.use(express.static(path.join(__dirname, 'public/home'),{
-  maxAge:0
+  maxAge:864000
 }));
 app.use('/home', home);
 app.use(express.static(path.join(__dirname, 'public'),{
-  maxAge:0
+  maxAge:864000
 }));
 app.use('/reactspa', reactspa);
 
