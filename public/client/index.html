@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">    
+<title>socket.io</title>
+<link rel='stylesheet' href='./client/style.css' />
+<script>document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';</script>
+
+</head>
+<body>
+<div class="title">
+    <div class="changecolor"></div>
+    <p>
+        ビロードルームへようこそ
+    </p>
+    <p >Welcome to the Velvet Room</p>
+
+</div>
+<div class="contentTotal" id='content'>
+
+    <div  class="content">
+       <span class="sys imgc">系</span> 
+        <!-- <img src="./client/img/1.jpg" alt="" class='imgc'> -->
+        <p id="robot"></p>
+    </div>
+    <!-- <div id="yourself" class="content"></div> -->
+    
+
+</div>
+<form action="">
+
+    <input id='input' type="text" >
+    <button type='submit' onclick='ss' id="myBtn" style="display:none">提交</button>
+
+</form>
+<script src="./client/socket.io.js"></script>
+<script src='./client/doit.js'></script>
+
+</body>
+</html>

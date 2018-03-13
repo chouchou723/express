@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-const axios = require('axios')
+const axios = require('axios');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -43,6 +43,12 @@ app.use(express.static(path.join(__dirname, 'public'),{
 }));
 app.use('/reactspa',reactspa);
 
+
+
+app.get('/drrr',(req,res)=>{
+  res.sendFile(__dirname+'/public/client/index.html')
+})
+
 app.get('/weather/:city', (req,res,next)=>{
   let city = req.params.city;
   let arr
@@ -50,7 +56,6 @@ app.get('/weather/:city', (req,res,next)=>{
   .then(json => {
      arr = json.data
   }).then(()=>{
-
     res.json(arr)
   })
   .catch(err => console.log(err))
