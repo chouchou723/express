@@ -17,6 +17,9 @@ html,body{
     border-bottom-left-radius: 50%;
     position: relative;
 }
+.titlep{
+    padding-top: 0.2rem
+}
 .changecolor{
     position: absolute;
     width: 100%;
@@ -97,7 +100,7 @@ html,body{
     top: 175px;
     left: 0;
     width: 100%;
-    height: calc(100% - 4.1rem);
+    height: calc(100% - 3.6rem);
     overflow-y: scroll;
 }
 .content{
@@ -119,7 +122,8 @@ html,body{
 #form{
     display: flex;
     justify-content: space-between;
-    height: 0.6rem;
+    align-items: center;
+    height: 1rem;
     width: 100%;
     position: absolute;
     /* bottom:0; */
@@ -131,7 +135,7 @@ html,body{
     bottom: 0;
     left: 0; */
     width: 96%;
-    height: 0.6rem;
+    height: 0.8rem;
     font-size: 15px;
     line-height: 15px;
     background: rgba(245,245,245,0.9);
