@@ -76,16 +76,17 @@ var submitBtn = document.getElementById("myBtn");
  document.getElementById("input").addEventListener("focus",myFunction);
 
 function myFunction() {
-    this.int = setInterval(()=>{
-        scrollToEnd();
-    },500)
+ setTimeout(()=>{
+    document.body.scrollTop = document.body.scrollHeight;
+     
+ })
 
 }
-function scrollToEnd() {
-    // document.body.scrollTop = document.body.scrollHeight;
-    console.log(document.body.scrollTop)
-        document.documentElement.scrollTop = 812;
-    }
+// function scrollToEnd() {
+//     document.body.scrollTop = document.body.scrollHeight;
+//     console.log(document.body.scrollTop)
+//         document.documentElement.scrollTop = 812;
+//     }
     // let a = document.documentElement.scrollTop +document.body.scrollTop;
     // let d = document.getElementById('form');
     // d.style.cssText = `bottom:${a}px`
