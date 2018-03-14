@@ -96,7 +96,7 @@ html,body{
     top: 175px;
     left: 0;
     width: 100%;
-    height: calc(100% - 4.7rem);
+    height: calc(100% - 4.1rem);
     overflow-y: scroll;
 }
 .content{

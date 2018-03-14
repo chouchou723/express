@@ -88,7 +88,7 @@ function myFunction() {
     // let Height = document.body.scrollHeight
     // let bottomAdjust = (Height - window.innerHeight - 88);
             let d = document.getElementById('form');
-            d.style.cssText='bottom:30px!important'
+            d.style.cssText='bottom:1px!important'
 
 
 // },1000)
