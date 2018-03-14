@@ -75,7 +75,7 @@ var submitBtn = document.getElementById("myBtn");
     document.getElementById("input").value = ''
 
  };
- document.getElementById("input").addEventListener("focus",myFunction);
+//  document.getElementById("input").addEventListener("focus",myFunction);
 
 function myFunction() {
     // document.body.scrollTop = document.body.scrollHeight;
@@ -160,7 +160,7 @@ function myFunction() {
     // d.style.cssText = `bottom:${a}px`
     // alert(a)
 
-document.getElementById("input").addEventListener("blur",myFunction1);
+// document.getElementById("input").addEventListener("blur",myFunction1);
 
 function myFunction1() {
     // let d = document.getElementById('form');
