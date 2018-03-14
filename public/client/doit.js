@@ -76,9 +76,11 @@ var submitBtn = document.getElementById("myBtn");
  document.getElementById("input").addEventListener("focus",myFunction);
 
 function myFunction() {
- let a = document.documentElement.scrollTop +document.body.scrollTop;
-    let d = document.getElementById('form');
-    d.style.cssText = `bottom:${a}px`
+//  let a = document.documentElement.scrollTop +document.body.scrollTop;
+//  let b =document.getElementsByTagName('BODY')[0].scrollHeight;
+//     let d = document.getElementById('form');
+//     d.style.cssText = `top:${b}px`
+document.getElementsByTagName('BODY')[0].scrollTop=document.getElementsByTagName('BODY')[0].scrollHeight;
 
 }
 // function scrollToEnd() {
