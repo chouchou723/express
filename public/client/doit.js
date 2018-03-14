@@ -80,10 +80,15 @@ var submitBtn = document.getElementById("myBtn");
 function myFunction() {
     // document.body.scrollTop = document.body.scrollHeight;
 //  let a = document.documentElement.scrollTop +document.body.scrollTop;
+let Height = window.innerHeight;
 setTimeout(function(){
-    let b =window.innerHeight;
-       let d = document.getElementById('form');
-       d.style.cssText = `top:${b}px`
+    // let b =window.innerHeight;
+    //    let d = document.getElementById('form');
+    //    d.style.cssText = 'top:500px'
+    let Height = document.body.scrollHeight
+    let bottomAdjust = (Height - window.innerHeight - 88);
+            let d = document.getElementById('form');
+            d.style.cssText=`bottom:${bottomAdjust}px`
 
 
 },1000)
