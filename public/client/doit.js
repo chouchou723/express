@@ -87,8 +87,15 @@ function myFunction() {
     //    d.style.cssText = 'top:500px'
     // let Height = document.body.scrollHeight
     // let bottomAdjust = (Height - window.innerHeight - 88);
-            let d = document.getElementById('form');
-            d.style.cssText='bottom:1px!important'
+    setTimeout(()=>{
+        this.inputIsNotInView = notInView()
+    
+            if (this.inputIsNotInView) {
+
+                let d = document.getElementById('form');
+                d.style.cssText='bottom:30px!important'
+            }
+    },500)
 
 
 // },1000)
