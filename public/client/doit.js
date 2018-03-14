@@ -80,7 +80,7 @@ function myFunction() {
 //  let b =document.getElementsByTagName('BODY')[0].scrollHeight;
 //     let d = document.getElementById('form');
 //     d.style.cssText = `top:${b}px`
-document.getElementsByTagName('BODY')[0].scrollTop=document.getElementsByTagName('BODY')[0].scrollHeight;
+document.getElementsByTagName('BODY')[0].scrollTop= 700;
 
 }
 // function scrollToEnd() {
