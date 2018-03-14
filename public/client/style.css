@@ -142,6 +142,8 @@ html,body{
     padding: 0;
     padding-left:0.1rem;
 }
+input::-ms-input-placeholder{text-align: center;}
+input::-webkit-input-placeholder{text-align: center;}
 #myBtn{
     /* position: absolute;
     bottom: 0;
