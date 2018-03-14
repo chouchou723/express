@@ -76,13 +76,14 @@ var submitBtn = document.getElementById("myBtn");
  document.getElementById("input").addEventListener("focus",myFunction);
 
 function myFunction() {
-    setTimeout(scrollToEnd,500);
-    // setInterval(()=>{
-    //     scrollToEnd();
-    // },500)
-};
-function scrollToEnd(){
-        document.body.scrollTop = document.body.scrollHeight;
+    this.int = setInterval(()=>{
+        scrollToEnd();
+    },500)
+
+}
+function scrollToEnd() {
+    document.body.scrollTop = document.body.scrollHeight;
+    console.log(document.body.scrollTop)
         // document.documentElement.scrollTop = document.body.scrollHeight;
     }
     // let a = document.documentElement.scrollTop +document.body.scrollTop;
@@ -93,8 +94,9 @@ function scrollToEnd(){
 document.getElementById("input").addEventListener("blur",myFunction1);
 
 function myFunction1() {
-    let d = document.getElementById('form');
-    d.style.cssText = 'bottom:0'
+    // let d = document.getElementById('form');
+    // d.style.cssText = 'bottom:0'
+    clearInterval(this.int)
 }
 // document.getElementById("myBtn").addEventListener("click",myFunction(e));
 
