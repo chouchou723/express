@@ -148,7 +148,8 @@ html,body{
     right: 0; */
     /* display: none; */
     opacity: 0;
-    width: 23%;
+    width: 0;
+    padding: 0;
     background: #0c9de2;
     color:white;
     border-color:#0c9de2;
