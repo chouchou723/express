@@ -78,7 +78,7 @@ var submitBtn = document.getElementById("myBtn");
 function myFunction() {
  let a = document.documentElement.scrollTop +document.body.scrollTop;
     let d = document.getElementById('form');
-    d.style.cssText = 'top:200px'
+    d.style.cssText = `bottom:${a}px`
 
 }
 // function scrollToEnd() {

@@ -4,6 +4,7 @@ html,body{
     margin: 0;
     background: #0a0a0a;
     color: whitesmoke;
+    overflow: hidden;
 }
 .title{
     text-align: center;
