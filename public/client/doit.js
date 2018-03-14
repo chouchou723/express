@@ -90,9 +90,9 @@ function myFunction() {
     setTimeout(()=>{
         // this.inputIsNotInView = notInView()
         let dd = document.getElementById('form');
-    let bottom = dd.getBoundingClientRect().bottom;
-    let a = window.innerHeight - bottom
-            if (document.body.scrollHeight>bottom) {
+    let bottom = dd.getBoundingClientRect().bottom;//500
+    let a = window.innerHeight //400
+            if (bottom>a) {
 
                 let d = document.getElementById('form');
                 d.style.cssText='bottom:30px!important'
