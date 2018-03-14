@@ -46,6 +46,9 @@ var submitBtn = document.getElementById("myBtn");
   var event = event || window.event;
   event.preventDefault();
       let c = document.getElementById("input").value;
+      if(c===''){
+          return false;
+      }
     // console.log(a)
     let a = document.getElementById('content');
         let length = a.length;
@@ -76,7 +79,7 @@ function myFunction() {
     let a = document.documentElement.scrollTop +document.body.scrollTop;
     let d = document.getElementById('form');
     d.style.cssText = `bottom:${a}px`
-    alert(a)
+    // alert(a)
 }
 document.getElementById("input").addEventListener("blur",myFunction1);
 
