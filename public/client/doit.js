@@ -78,11 +78,11 @@ var submitBtn = document.getElementById("myBtn");
  document.getElementById("input").addEventListener("focus",myFunction);
 
 function myFunction() {
-    document.body.scrollTop = document.body.scrollHeight;
+    // document.body.scrollTop = document.body.scrollHeight;
 //  let a = document.documentElement.scrollTop +document.body.scrollTop;
-//  let b =document.getElementsByTagName('BODY')[0].scrollHeight;
-//     let d = document.getElementById('form');
-//     d.style.cssText = `top:${b}px`
+ let b =window.innerHeight-30;
+    let d = document.getElementById('form');
+    d.style.cssText = `top:${b}px`
 // document.getElementsByTagName('BODY')[0].scrollTop= 700;
 // setTimeout(() => {
     // 挂载this上, 或者声明一个全局变量, 用于在失去焦点时, 要不要执行调整代码(非第三方不调整)
