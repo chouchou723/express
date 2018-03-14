@@ -77,7 +77,7 @@ var submitBtn = document.getElementById("myBtn");
 
 function myFunction() {
   let d = document.getElementById('form');
-    d.style.cssText = 'bottom:10rem'
+    d.style.cssText = 'top:0'
 
 }
 // function scrollToEnd() {
