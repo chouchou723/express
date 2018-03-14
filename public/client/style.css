@@ -104,7 +104,7 @@ html,body{
     justify-content: flex-end;
     
 }
-form{
+#form{
     display: flex;
     justify-content: space-between;
     height: 0.6rem;
