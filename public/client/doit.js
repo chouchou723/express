@@ -76,9 +76,11 @@ var submitBtn = document.getElementById("myBtn");
  document.getElementById("input").addEventListener("focus",myFunction);
 
 function myFunction() {
-    let a = document.documentElement.scrollTop +document.body.scrollTop;
-    let d = document.getElementById('form');
-    d.style.cssText = `bottom:${a}px`
+    document.body.scrollTop = document.body.scrollHeight;
+    document.documentElement.scrollTop = document.body.scrollHeight;
+    // let a = document.documentElement.scrollTop +document.body.scrollTop;
+    // let d = document.getElementById('form');
+    // d.style.cssText = `bottom:${a}px`
     // alert(a)
 }
 document.getElementById("input").addEventListener("blur",myFunction1);
