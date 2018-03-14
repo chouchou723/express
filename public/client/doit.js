@@ -80,7 +80,7 @@ function myFunction() {
     document.body.scrollTop = document.body.scrollHeight;
     document.documentElement.scrollTop = 812;
      
- })
+ },500)
 
 }
 // function scrollToEnd() {
