@@ -70,6 +70,20 @@ var submitBtn = document.getElementById("myBtn");
     document.getElementById("input").value = ''
 
  };
+ document.getElementById("input").addEventListener("focus",myFunction);
+
+function myFunction() {
+    let a = document.documentElement.scrollTop +document.body.scrollTop;
+    let d = document.getElementById('form');
+    d.style.cssText = `bottom:${a}px`
+    alert(a)
+}
+document.getElementById("input").addEventListener("blur",myFunction1);
+
+function myFunction1() {
+    let d = document.getElementById('form');
+    d.style.cssText = 'bottom:0'
+}
 // document.getElementById("myBtn").addEventListener("click",myFunction(e));
 
 // function myFunction(e) {
