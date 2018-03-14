@@ -152,7 +152,9 @@ document.getElementById("input").addEventListener("blur",myFunction1);
 function myFunction1() {
     // let d = document.getElementById('form');
     // d.style.cssText = 'bottom:0'
-    clearInterval(this.int)
+    // clearInterval(this.int)
+    let d = document.getElementById('form');
+    d.style.cssText='bottom:0!important'
 }
 // document.getElementById("myBtn").addEventListener("click",myFunction(e));
 
