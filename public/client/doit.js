@@ -94,6 +94,9 @@ function myFunction() {
 
                 let d = document.getElementById('form');
                 d.style.cssText='bottom:30px!important'
+            }else{
+                let d = document.getElementById('form');
+                d.style.cssText='bottom:30px!important'
             }
     },500)
 
