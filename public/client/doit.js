@@ -76,11 +76,8 @@ var submitBtn = document.getElementById("myBtn");
  document.getElementById("input").addEventListener("focus",myFunction);
 
 function myFunction() {
- setTimeout(()=>{
-    document.body.scrollTop = document.body.scrollHeight;
-    document.documentElement.scrollTop = 812;
-     
- },500)
+  let d = document.getElementById('form');
+    d.style.cssText = 'bottom:10rem'
 
 }
 // function scrollToEnd() {
