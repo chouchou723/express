@@ -92,14 +92,14 @@ setTimeout(() => {
         // 88: 是第三方输入法比原生输入法多的那个tool bar(输入时显示带选项) 的高度, 做的不是太绝, 高度是统一的
         // ios第三方输入法的tool bar 甚至 键盘也被当作可视区域了(包含在键盘弹出时的window.innerHeight)
         if (Width != 750) {
-            let bottomAdjust = (Height - window.innerHeight - 88) + 'px';
+            let bottomAdjust = (Height - window.innerHeight - 176) + 'px';
             let d = document.getElementById('form');
             d.style.cssText=`bottom:${bottomAdjust}px`
             // $(this.inputBoxContainer).css('bottom', bottomAdjust)
         }
         else {
             // 'iphone 6 6s, 需要额外减去键盘高度432(见下图), 还算有良心, 高度和原生保持一致')
-            let bottomAdjust = (Height - window.innerHeight - 88 - 432) + 'px';
+            let bottomAdjust = (Height - window.innerHeight - 176 - 432) + 'px';
             let d = document.getElementById('form');
             d.style.cssText=`bottom:${bottomAdjust}px`
             // $(this.inputBoxContainer).css('bottom', bottomAdjust)
