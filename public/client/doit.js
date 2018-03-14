@@ -82,9 +82,9 @@ function myFunction() {
 
 }
 function scrollToEnd() {
-    document.body.scrollTop = document.body.scrollHeight;
+    // document.body.scrollTop = document.body.scrollHeight;
     console.log(document.body.scrollTop)
-        // document.documentElement.scrollTop = document.body.scrollHeight;
+        document.documentElement.scrollTop = document.body.scrollHeight;
     }
     // let a = document.documentElement.scrollTop +document.body.scrollTop;
     // let d = document.getElementById('form');
