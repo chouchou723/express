@@ -80,9 +80,13 @@ var submitBtn = document.getElementById("myBtn");
 function myFunction() {
     // document.body.scrollTop = document.body.scrollHeight;
 //  let a = document.documentElement.scrollTop +document.body.scrollTop;
- let b =window.innerHeight-30;
-    let d = document.getElementById('form');
-    d.style.cssText = `top:${b}px`
+setTimeout(function(){
+    let b =window.innerHeight;
+       let d = document.getElementById('form');
+       d.style.cssText = `top:${b}px`
+
+
+},1000)
 // document.getElementsByTagName('BODY')[0].scrollTop= 700;
 // setTimeout(() => {
     // 挂载this上, 或者声明一个全局变量, 用于在失去焦点时, 要不要执行调整代码(非第三方不调整)
