@@ -78,6 +78,7 @@ var submitBtn = document.getElementById("myBtn");
 function myFunction() {
  setTimeout(()=>{
     document.body.scrollTop = document.body.scrollHeight;
+    document.documentElement.scrollTop = 812;
      
  })
 
