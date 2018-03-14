@@ -146,7 +146,8 @@ html,body{
     /* position: absolute;
     bottom: 0;
     right: 0; */
-    display: none;
+    /* display: none; */
+    opacity: 0;
     width: 23%;
     background: #0c9de2;
     color:white;
