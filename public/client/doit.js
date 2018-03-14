@@ -88,15 +88,17 @@ function myFunction() {
     // let Height = document.body.scrollHeight
     // let bottomAdjust = (Height - window.innerHeight - 88);
     setTimeout(()=>{
-        this.inputIsNotInView = notInView()
-    
-            if (this.inputIsNotInView) {
+        // this.inputIsNotInView = notInView()
+        let dd = document.getElementById('form');
+    let bottom = dd.getBoundingClientRect().bottom;
+    let a = window.innerHeight - bottom
+            if (a<0) {
 
                 let d = document.getElementById('form');
                 d.style.cssText='bottom:30px!important'
             }else{
                 let d = document.getElementById('form');
-                d.style.cssText='bottom:30px!important'
+                d.style.cssText='bottom:0!important'
             }
     },500)
 
