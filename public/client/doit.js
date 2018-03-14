@@ -80,18 +80,18 @@ var submitBtn = document.getElementById("myBtn");
 function myFunction() {
     // document.body.scrollTop = document.body.scrollHeight;
 //  let a = document.documentElement.scrollTop +document.body.scrollTop;
-let Height = window.innerHeight;
-setTimeout(function(){
+// let Height = window.innerHeight;
+// setTimeout(function(){
     // let b =window.innerHeight;
     //    let d = document.getElementById('form');
     //    d.style.cssText = 'top:500px'
-    let Height = document.body.scrollHeight
-    let bottomAdjust = (Height - window.innerHeight - 88);
+    // let Height = document.body.scrollHeight
+    // let bottomAdjust = (Height - window.innerHeight - 88);
             let d = document.getElementById('form');
-            d.style.cssText=`bottom:${bottomAdjust}px`
+            d.style.cssText='bottom:30px!important'
 
 
-},1000)
+// },1000)
 // document.getElementsByTagName('BODY')[0].scrollTop= 700;
 // setTimeout(() => {
     // 挂载this上, 或者声明一个全局变量, 用于在失去焦点时, 要不要执行调整代码(非第三方不调整)

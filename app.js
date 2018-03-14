@@ -60,6 +60,18 @@ app.get('/weather/:city', (req,res,next)=>{
   })
   .catch(err => console.log(err))
 });
+
+app.get('/astro/fortune/:astroid', (req,res,next)=>{
+  let astroid = req.params.astroid;
+  let arr
+  axios.get('http://api.jisuapi.com/astro/fortune?appkey=adfb0e1348ec0adf',{params:{astroid:astroid}})
+  .then(json => {
+     arr = json.data
+  }).then(()=>{
+    res.json(arr)
+  })
+  .catch(err => console.log(err))
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
