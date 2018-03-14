@@ -92,11 +92,12 @@ function myFunction() {
         let dd = document.getElementById('form');
     let bottom = dd.getBoundingClientRect().bottom;
     let a = window.innerHeight - bottom
-            if (a<0) {
+            if (document.body.scrollHeight>bottom) {
 
                 let d = document.getElementById('form');
                 d.style.cssText='bottom:30px!important'
             }else{
+                console.log(bottom)
                 let d = document.getElementById('form');
                 d.style.cssText='bottom:0!important'
             }
