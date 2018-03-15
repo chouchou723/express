@@ -111,10 +111,8 @@ function sendmess(){
 function myFunction() {
     let a = document.getElementById('send');
     a.style.cssText="display:flex";
-    setTimeout(()=>{
-        let d = document.getElementById('form');
-    d.style.cssText = 'bottom:30px'
-},500)
+           let d = document.getElementById('form');
+       d.style.cssText = 'bottom:30px'
     // document.body.scrollTop = document.body.scrollHeight;
 //  let a = document.documentElement.scrollTop +document.body.scrollTop;
 // let Height = window.innerHeight;
