@@ -18,7 +18,23 @@ html,body{
     position: relative;
 }
 .titlep{
-    padding-top: 0.2rem
+    padding-top: 0.2rem;
+    background-image: -webkit-linear-gradient(left,#147B96,#E6D205 25%,#147B96 50%,#E6D205 75%,#147B96);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size:200% 100%;
+    -webkit-animation: masked 4s infinite linear;
+}
+.titlep2{
+    background-image: -webkit-linear-gradient(right,rgb(197, 34, 34),#E6D205 25%,rgb(197, 34, 34) 50%,#E6D205 75%,rgb(197, 34, 34));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size:200% 100%;
+    -webkit-animation: masked 4s infinite linear;
+}
+@keyframes masked{
+    0%{background-position: 0 0;}
+    100%{background-position: -100% 0}
 }
 .changecolor{
     position: absolute;
@@ -88,20 +104,23 @@ html,body{
 }
 .container{
     position: absolute;
-    top:0;
+    top:175px;
     box-sizing: border-box;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 175px);
     overflow: hidden;
+    display: flex;  
+    flex-direction: column;
 }
 .contentTotal{
-    position: absolute;
-    top: 175px;
-    left: 0;
+    /* position: absolute; */
+    /* top: 175px; */
+    /* left: 0; */
     width: 100%;
     height: calc(100% - 3.6rem);
     overflow-y: scroll;
+    flex: 1;
 }
 .content{
     font-size: 15px;
@@ -125,10 +144,10 @@ html,body{
     align-items: center;
     height: 1rem;
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
     /* bottom:0; */
-    left:0;
-    right: 0;
+    /* left:0; */
+    /* right: 0; */
 }
 #input{
     /* position: fixed;
