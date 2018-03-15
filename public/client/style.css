@@ -164,7 +164,6 @@ html,body{
     border:0;
     padding: 0;
     padding-left:0.1rem;
-    border: 15px solid transparent; 
 }
 input::-ms-input-placeholder{text-align: center;}
 input::-webkit-input-placeholder{text-align: center;}
