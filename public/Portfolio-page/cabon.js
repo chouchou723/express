@@ -230,7 +230,7 @@ S.UI = (function () {
 
   function bindEvents() {
     document.body.addEventListener('keydown', function (e) {
-      input.focus();
+      // input.focus();
 
       if (e.keyCode === 13) {
         firstAction = false;
@@ -291,7 +291,7 @@ S.UI = (function () {
 
   function init() {
     bindEvents();
-    input.focus();
+    // input.focus();
     isTouch && document.body.classList.add('touch');
   }
 
