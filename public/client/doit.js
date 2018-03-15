@@ -114,7 +114,7 @@ function myFunction() {
     setTimeout(()=>{
         let d = document.getElementById('form');
     d.style.cssText = 'bottom:30px'
-},500)
+},5500)
     // document.body.scrollTop = document.body.scrollHeight;
 //  let a = document.documentElement.scrollTop +document.body.scrollTop;
 // let Height = window.innerHeight;
