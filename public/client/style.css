@@ -103,12 +103,12 @@ html,body{
     }
 }
 .container{
-    position: absolute;
-    top:175px;
+    /* position: absolute; */
+    /* top:175px; */
     box-sizing: border-box;
-    left: 0;
+    /* left: 0; */
     width: 100%;
-    height: calc(100% - 175px);
+    height: calc(100% - 185px);
     overflow: hidden;
     display: flex;  
     flex-direction: column;
@@ -118,7 +118,7 @@ html,body{
     /* top: 175px; */
     /* left: 0; */
     width: 100%;
-    height: calc(100% - 3.6rem);
+    /* height: calc(100% - 3.6rem); */
     overflow-y: scroll;
     flex: 1;
 }
@@ -164,6 +164,7 @@ html,body{
     border:0;
     padding: 0;
     padding-left:0.1rem;
+    border: 1px solid #666; 
 }
 input::-ms-input-placeholder{text-align: center;}
 input::-webkit-input-placeholder{text-align: center;}
