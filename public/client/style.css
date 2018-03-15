@@ -162,10 +162,10 @@ html,body{
     outline:none;
     margin: 0 auto;
     border:0;
-    padding: 0 1.2rem 0 0.1rem;
+    padding: 0 1.2rem 0 0.2rem;
 }
-input::-ms-input-placeholder{text-align: center;}
-input::-webkit-input-placeholder{text-align: center;padding-left:1.2rem}
+input::-ms-input-placeholder{text-align: left;}
+input::-webkit-input-placeholder{text-align: left;}
 #myBtn{
     /* position: absolute;
     bottom: 0;
