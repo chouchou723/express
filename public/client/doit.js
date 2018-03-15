@@ -8,7 +8,7 @@ socket.on('news', function (data) {
 console.log(data);
 // socket.emit('my other event', { my: 'data' });
 });
-
+var inputH = document.getElementById('input').getBoundingClientRect().top;
 socket.on('content', function (data) {
     console.log(data.id,id)
     if(data.id!=id){
@@ -112,7 +112,7 @@ function myFunction() {
     let a = document.getElementById('send');
     a.style.cssText="display:flex";
            let d = document.getElementById('form');
-       d.style.cssText = 'padding-bottom:35px'
+       d.style.cssText = 'bottom:30px'
     // document.body.scrollTop = document.body.scrollHeight;
 //  let a = document.documentElement.scrollTop +document.body.scrollTop;
 // let Height = window.innerHeight;
@@ -211,7 +211,7 @@ function myFunction1() {
             a.style.cssText="display:none"
         }
         let d = document.getElementById('form');
-        d.style.cssText = 'padding-bottom:0'
+        d.style.cssText = 'bottom:0'
     },1)
 }
 // document.getElementById("myBtn").addEventListener("click",myFunction(e));
