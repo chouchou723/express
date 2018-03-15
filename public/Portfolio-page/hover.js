@@ -12,6 +12,7 @@ const closestDist = function(x,y,w,h){
   const toLeft = toEdgeDist(x,y,0,h/2);
   const toRight = toEdgeDist(x,y,w,h/2);
   const minDist = Math.min(toTop,toBottom,toLeft,toRight);
+  // console.log(toTop,toBottom,toLeft,toRight)
   switch(minDist){
     case toTop:
       return 'top';
@@ -28,12 +29,13 @@ $(document).ready(function(){
   const num = $(".boxes").length;
   for( let i = 0; i<num; i++){
     $('.boxes').eq(i).mouseenter(function(e){
+
       const x = e.pageX - this.offsetLeft;
-      const y = e.pageY - this.offsetTop;
+      const y = e.pageY - this.offsetTop-1190;
       const w = this.clientWidth;
       const h = this.clientHeight;
       const enterResult = closestDist(x,y,w,h);
-      console.log(x,y,w,h);
+      // console.log(x,y,w,h,enterResult,this.offsetLeft,this.offsetTop);
     
       switch(enterResult){
         case 'top':

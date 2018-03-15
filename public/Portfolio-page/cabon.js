@@ -94,7 +94,7 @@ S.UI = (function () {
       ui = document.querySelector('.ui'),
       help = document.querySelector('.help'),
       commands = document.querySelector('.commands'),
-      overlay = document.querySelector('.overlay'),
+      overlay = document.querySelector('.overlay1'),
       canvas = document.querySelector('.canvas'),
       interval,
       isTouch = false, //('ontouchstart' in window || navigator.msMaxTouchPoints),
@@ -151,7 +151,7 @@ S.UI = (function () {
         value,
         current;
 
-    overlay.classList.remove('overlay--visible');
+    overlay.classList.remove('overlay1--visible');
     sequence = typeof(value) === 'object' ? value : sequence.concat(value.split('|'));
     input.value = '';
     checkInputWidth();
@@ -244,8 +244,8 @@ S.UI = (function () {
     input.addEventListener('focus', checkInputWidth);
 
     help.addEventListener('click', function (e) {
-      overlay.classList.toggle('overlay--visible');
-      overlay.classList.contains('overlay--visible') && reset(true);
+      overlay.classList.toggle('overlay1--visible');
+      overlay.classList.contains('overlay1--visible') && reset(true);
     });
 
     commands.addEventListener('click', function (e) {
@@ -267,7 +267,7 @@ S.UI = (function () {
       url = el && info.getAttribute('data-url');
 
       if (info) {
-        overlay.classList.remove('overlay--visible');
+        overlay.classList.remove('overlay1--visible');
 
         if (demo) {
           input.value = demo;
@@ -285,7 +285,7 @@ S.UI = (function () {
     });
 
     canvas.addEventListener('click', function (e) {
-      overlay.classList.remove('overlay--visible');
+      overlay.classList.remove('overlay1--visible');
     });
   }
 
