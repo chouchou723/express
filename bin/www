@@ -31,7 +31,7 @@ server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'ビロードルームへようこそ' ,number:Math.floor(Math.random()*7+1)});
+  socket.emit('news', { hello: 'ビロードルームへようこそ',number:Math.floor(Math.random()*23+1)});
   socket.on('my other event', function (data) {
     console.log(data);
     socket.broadcast.emit('content',{hello:data.my,id:data.id,number:data.number})
