@@ -75,9 +75,42 @@ var submitBtn = document.getElementById("myBtn");
     document.getElementById("input").value = ''
 
  };
-//  document.getElementById("input").addEventListener("focus",myFunction);
+ document.getElementById("sendb").addEventListener("click",sendmess);
+function sendmess(){
+    // console.log(1)
+    let c = document.getElementById("input").value;
+    if(c===''){
+        return false;
+    }
+  // console.log(a)
+  let a = document.getElementById('content');
+      let length = a.length;
+      let Dnode = document.createElement('div');
+      Dnode.id = 'yourself';
+
+      let node = document.createElement('p');
+      var textnode = document.createTextNode(c);
+      node.appendChild(textnode);
+
+      let imgnode = document.createElement('img');
+      imgnode.src = `./client/img/${imgsrc}.jpg`;
+      imgnode.className = 'imgy';
+
+      Dnode.appendChild(node);
+      Dnode.appendChild(imgnode);
+
+
+     a.appendChild(Dnode);
+  document.getElementById('content').scrollTop += 100;
+  socket.emit('my other event',{my:c,id:id,number:imgsrc});
+  document.getElementById("input").value = ''
+}
+
+ document.getElementById("input").addEventListener("focus",myFunction);
 
 function myFunction() {
+    let a = document.getElementById('send');
+    a.style.cssText="display:flex"
     // document.body.scrollTop = document.body.scrollHeight;
 //  let a = document.documentElement.scrollTop +document.body.scrollTop;
 // let Height = window.innerHeight;
@@ -87,21 +120,21 @@ function myFunction() {
     //    d.style.cssText = 'top:500px'
     // let Height = document.body.scrollHeight
     // let bottomAdjust = (Height - window.innerHeight - 88);
-    setTimeout(()=>{
-        // this.inputIsNotInView = notInView()
-        let dd = document.getElementById('form');
-    let bottom = dd.getBoundingClientRect().bottom;//500
-    let a = window.innerHeight //400
-            if (bottom>a) {
+    // setTimeout(()=>{
+    //     // this.inputIsNotInView = notInView()
+    //     let dd = document.getElementById('form');
+    // let bottom = dd.getBoundingClientRect().bottom;//500
+    // let a = window.innerHeight //400
+    //         if (bottom>a) {
 
-                let d = document.getElementById('form');
-                d.style.cssText='bottom:30px!important'
-            }else{
-                console.log(bottom)
-                let d = document.getElementById('form');
-                d.style.cssText='bottom:0!important'
-            }
-    },500)
+    //             let d = document.getElementById('form');
+    //             d.style.cssText='bottom:30px!important'
+    //         }else{
+    //             console.log(bottom)
+    //             let d = document.getElementById('form');
+    //             d.style.cssText='bottom:0!important'
+    //         }
+    // },500)
 
 
 // },1000)
@@ -160,14 +193,18 @@ function myFunction() {
     // d.style.cssText = `bottom:${a}px`
     // alert(a)
 
-// document.getElementById("input").addEventListener("blur",myFunction1);
+document.getElementById("input").addEventListener("blur",myFunction1);
 
 function myFunction1() {
     // let d = document.getElementById('form');
     // d.style.cssText = 'bottom:0'
     // clearInterval(this.int)
-    let d = document.getElementById('form');
-    d.style.cssText='bottom:0!important'
+    // let d = document.getElementById('form');
+    // d.style.cssText='bottom:0!important'
+    setTimeout(()=>{        
+        let a = document.getElementById('send');
+        a.style.cssText="display:none"
+    },1)
 }
 // document.getElementById("myBtn").addEventListener("click",myFunction(e));
 
