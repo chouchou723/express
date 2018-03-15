@@ -110,7 +110,9 @@ function sendmess(){
 
 function myFunction() {
     let a = document.getElementById('send');
-    a.style.cssText="display:flex"
+    a.style.cssText="display:flex";
+           let d = document.getElementById('form');
+       d.style.cssText = 'margin-bottom:30px'
     // document.body.scrollTop = document.body.scrollHeight;
 //  let a = document.documentElement.scrollTop +document.body.scrollTop;
 // let Height = window.innerHeight;
@@ -201,9 +203,15 @@ function myFunction1() {
     // clearInterval(this.int)
     // let d = document.getElementById('form');
     // d.style.cssText='bottom:0!important'
-    setTimeout(()=>{        
+    setTimeout(()=>{   
+        let c = document.getElementById("input").value;     
         let a = document.getElementById('send');
-        a.style.cssText="display:none"
+        if(c===''){
+
+            a.style.cssText="display:none"
+        }
+        let d = document.getElementById('form');
+        d.style.cssText = 'margin-bottom:0'
     },1)
 }
 // document.getElementById("myBtn").addEventListener("click",myFunction(e));
