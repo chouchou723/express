@@ -1,7 +1,7 @@
 
     var id = Math.ceil(Math.random()*25328832);
     var imgsrc;
-var socket = io.connect('http://111.231.84.241:3000');
+var socket = io.connect('http://111.231.84.241:80');
 socket.on('news', function (data) {
     let robot = document.getElementById('robot').innerHTML = data.hello
     imgsrc = data.number
