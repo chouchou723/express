@@ -142,7 +142,7 @@ img.icon {
 /* line 121, ../sass/chenyisha.scss */
 .intro-row {
   text-align: left;
-  background-color: #358dc1;
+  background-color: #3b4557cc;
   padding: 1.5em;
   color: #fafafa;
 }
@@ -163,7 +163,7 @@ img.icon {
 
 /* line 139, ../sass/chenyisha.scss */
 .hobby {
-  background-color: #44afbb;
+  background-color: #35566d;
 }
 
 /* line 143, ../sass/chenyisha.scss */
@@ -171,7 +171,7 @@ img.icon {
   text-align: center;
   padding-top: 7%;
   padding-bottom: 7%;
-  position: relative;
+  /* position: relative; */
 }
 /* line 147, ../sass/chenyisha.scss */
 .content-section-b h1 {
@@ -407,3 +407,22 @@ img.icon {
          opacity: 1;
      }*/
   }
+  .titlep{
+    padding-top: 0.2rem;
+    background-image: -webkit-linear-gradient(left,#147B96,#E6D205 25%,#147B96 50%,#E6D205 75%,#147B96);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size:200% 100%;
+    -webkit-animation: masked 4s infinite linear;
+}
+  .titlep2{
+    background-image: -webkit-linear-gradient(right,rgb(197, 34, 34),#E6D205 25%,rgb(197, 34, 34) 50%,#E6D205 75%,rgb(197, 34, 34));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-background-size:200% 100%;
+    -webkit-animation: masked 4s infinite linear;
+}
+@keyframes masked{
+    0%{background-position: 0 0;}
+    100%{background-position: -100% 0}
+}

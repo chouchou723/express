@@ -29,9 +29,10 @@ $(document).ready(function(){
   const num = $(".boxes").length;
   for( let i = 0; i<num; i++){
     $('.boxes').eq(i).mouseenter(function(e){
-
+      let a = document.getElementsByClassName('boxes')[i].offsetTop+document.documentElement.scrollTop;
+      // console.log(a)
       const x = e.pageX - this.offsetLeft;
-      const y = e.pageY - this.offsetTop-1190;
+      const y = e.pageY - this.offsetTop;
       const w = this.clientWidth;
       const h = this.clientHeight;
       const enterResult = closestDist(x,y,w,h);
@@ -58,6 +59,7 @@ $(document).ready(function(){
     });
     $('.boxes').eq(i).mouseleave(function(e){
       $('.overlay').eq(i).css({'top':'0%','left':'0%'}); 
+      let a = document.getElementsByClassName('boxes')[i].offsetTop+document.documentElement.scrollTop;      
       const x = e.pageX - this.offsetLeft;
       const y = e.pageY - this.offsetTop;
       const w = this.clientWidth;
