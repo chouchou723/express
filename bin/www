@@ -7,6 +7,13 @@
 var app = require('../app');
 var debug = require('debug')('blog:server');
 var http = require('http');
+var https = require('https');
+var fs = require('fs');
+
+var options ={
+  key:fs.readFileSync('./2_www.choulovecandy.cn.key'),
+  cert:fs.readFileSync('./1_www.choulovecandy.cn_bundle.crt')
+}
 
 
 /**
@@ -28,6 +35,7 @@ var io = require('socket.io').listen(server);
  */
 
 server.listen(port);
+https.createServer(options,app);
 server.on('error', onError);
 server.on('listening', onListening);
 io.sockets.on('connection', function (socket) {
