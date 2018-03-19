@@ -10,9 +10,9 @@ var http = require('http');
 var https = require('https');
 var fs = require('fs');
 
-var options ={
-  key:fs.readFileSync('./2_www.choulovecandy.cn.key'),
-  cert:fs.readFileSync('./1_www.choulovecandy.cn_bundle.crt')
+var options = {
+  key:fs.readFileSync("./2_www.choulovecandy.cn.key"),
+  cert:fs.readFileSync("./1_www.choulovecandy.cn_bundle.pem")
 }
 
 
@@ -20,31 +20,34 @@ var options ={
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '80');
-app.set('port', port);
+// var port = normalizePort(process.env.PORT || '3080');
+// app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
 var server = http.createServer(app);
-var io = require('socket.io').listen(server);
+var servers = https.createServer(options,app);
+// var io = require('socket.io').listen(server);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-https.createServer(options,app).listen(443);
+server.listen(80);
+servers.listen(443);
 server.on('error', onError);
+servers.on('error', onError);
 server.on('listening', onListening);
-io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'ビロードルームへようこそ',number:Math.floor(Math.random()*23+1)});
-  socket.on('my other event', function (data) {
-    console.log(data);
-    socket.broadcast.emit('content',{hello:data.my,id:data.id,number:data.number})
-  });
-});
+servers.on('listening', onListening);
+// io.sockets.on('connection', function (socket) {
+//   socket.emit('news', { hello: 'ビロードルームへようこそ',number:Math.floor(Math.random()*23+1)});
+//   socket.on('my other event', function (data) {
+//     console.log(data);
+//     socket.broadcast.emit('content',{hello:data.my,id:data.id,number:data.number})
+//   });
+// });
 /**
  * Normalize a port into a number, string, or false.
  */
