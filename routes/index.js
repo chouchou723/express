@@ -7,7 +7,7 @@ const root = {root:path.join(__dirname,'../public/Portfolio-page')}
 /* GET home page. */
 router.get('/', function(req, res, next) {
   if (req.headers['x-forwarded-proto'] != 'https') {
-    res.redirect(status, 'https://' + req.hostname + req.originalUrl);
+    res.redirect(302, 'https://' + req.hostname + req.originalUrl);
   }
   else {
     res.sendFile('chouchou.html',root)
