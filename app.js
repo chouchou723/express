@@ -10,23 +10,16 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var home = require('./routes/home');
 var reactspa = require('./routes/spa');
-
+var sslRedirect = require('heroku-ssl-redirect');
 
 
 
 var app = express();
-
+app.use(sslRedirect());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.all('*',function (req, res, next) {
-  if (req.header('x-forwarded-proto') == 'http') {
-    res.redirect(301, 'https://' + 'www.choulovecandy.com' + req.url)
-    return
-  }
-  next()
-})
 
 // app.use(express.static(path.join(__dirname, 'public'),{
 //   maxAge:0
