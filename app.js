@@ -20,6 +20,13 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.get('*',function(req,res,next){
+  if(req.headers['x-forwarded-proto']!='https')
+    res.redirect('https://www.choulovecandy.cn'+req.url)
+  else
+    next() /* Continue to other routes if we're not redirecting */
+})
+
 // app.use(express.static(path.join(__dirname, 'public'),{
 //   maxAge:0
 //   }));
