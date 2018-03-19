@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
   // }else{
     res.sendFile('chouchou.html',root)
 
-  }
+  // }
   // res.render('index', { title: 'Express' });
   // res.sendFile('index.html',root)
   
