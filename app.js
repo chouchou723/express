@@ -34,10 +34,10 @@ app.use(express.static(path.join(__dirname, 'public/Portfolio-page'),{
 }));
 app.use('/', index);
 
-app.use(express.static(path.join(__dirname, 'public/home'),{
-  maxAge:864000
-}));
-app.use('/home', home);
+// app.use(express.static(path.join(__dirname, 'public/home'),{
+//   maxAge:864000
+// }));
+// app.use('/home', home);
 app.use(express.static(path.join(__dirname, 'public'),{
   maxAge:864000
 }));
