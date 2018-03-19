@@ -20,7 +20,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(function (req, res, next) {
+app.all('*',function (req, res, next) {
   if (req.header('x-forwarded-proto') == 'http') {
     res.redirect(301, 'https://' + 'www.choulovecandy.com' + req.url)
     return
