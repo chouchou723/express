@@ -6,6 +6,13 @@ const root = {root:path.join(__dirname,'../public/Portfolio-page')}
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  if (req.headers['x-forwarded-proto'] != 'https') {
+    res.redirect(status, 'https://' + req.hostname + req.originalUrl);
+  }
+  else {
+    res.sendFile('chouchou.html',root)
+    // next();
+  }
   // console.log(req.headers)
 //   let array = ['nokia', 'sony', 'ericsson', 'mot', 'samsung', 'htc', 'sgh', 'lg', 'sharp', 'sie-'
 //   ,'philips', 'panasonic', 'alcatel', 'lenovo', 'iphone', 'ipod', 'blackberry', 'meizu', 
@@ -17,7 +24,7 @@ router.get('/', function(req, res, next) {
 //   if(array.includes(b)){
 // res.redirect('/home');
   // }else{
-    res.sendFile('chouchou.html',root)
+   
 
   // }
   // res.render('index', { title: 'Express' });

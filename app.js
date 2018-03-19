@@ -10,12 +10,12 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var home = require('./routes/home');
 var reactspa = require('./routes/spa');
-var sslRedirect = require('heroku-ssl-redirect');
+
 
 
 
 var app = express();
-app.use(sslRedirect());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
