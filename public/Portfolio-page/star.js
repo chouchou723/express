@@ -102,8 +102,8 @@ window.addEventListener("touchstart", function(e) {
 window.addEventListener("resize", onResize);
 
 function onResize() {
-  ww = canvas.width = window.innerWidth;
-  wh = canvas.height = 1279;//canvas.height = window.innerHeight;
+  ww = canvas.width = document.body.clientWidth;
+  wh = canvas.height =  1279//window.innerHeight;
   clipSize = Math.min(ww / 2 - 4, wh / 2 - 4);
   ctx.shadowBlur = 20;
   if(navigator.userAgent.toLowerCase().indexOf('firefox') === -1){

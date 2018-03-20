@@ -74,15 +74,16 @@ a:hover {color: palevioletred; text-decoration:underline;}
   clip-path: circle(70px at 70px 70px);
   object-fit: cover;
   margin-bottom: 30px;
+  border-radius: 50%
 }
 /* line 69, ../sass/chenyisha.scss */
 .intro-message h3 {
-  left: 30%;
+  /* left: 30%; */
   font: bold 200% Consolas, Monaco, monospace;
   border-right: .1em solid;
   width: 13ch;
   /* # of chars */
-  margin: 1em 40%;
+  margin: 0 auto;
   white-space: nowrap;
   overflow: hidden;
   animation: typing 5s steps(13, end), blink-caret 0.5s step-end infinite alternate;
@@ -234,7 +235,7 @@ img.icon {
 
 /* line 197, ../sass/chenyisha.scss */
 .container-imgs {
-  width: 1170px;
+  width: 100%;
   display: block;
   margin: 0;
   padding-top: 1%;
@@ -426,3 +427,23 @@ img.icon {
     0%{background-position: 0 0;}
     100%{background-position: -100% 0}
 }
+@keyframes myt{
+  0%{margin-left:8%;}
+  100%{margin-left:-200%}
+}
+@media screen and (max-width:700px){ 
+  .boxes{ 
+  width:90%;
+  margin-bottom: 2%;
+  margin-left: 5%;
+  }
+  .skillspan{
+    animation: myt 20s linear infinite;
+  }
+  .skillspan1{
+    animation: myt 80s linear infinite;
+  }
+  }
+  .moveup{
+    text-align: center
+  }
