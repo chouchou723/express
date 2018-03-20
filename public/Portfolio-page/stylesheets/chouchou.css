@@ -71,6 +71,7 @@ a:hover {color: palevioletred; text-decoration:underline;}
 /* line 63, ../sass/chenyisha.scss */
 .intro-message #cys__photo {
   width: 140px;
+  height: 140px;
   clip-path: circle(70px at 70px 70px);
   object-fit: cover;
   margin-bottom: 30px;
