@@ -432,6 +432,10 @@ img.icon {
   0%{margin-left:8%;}
   100%{margin-left:-200%}
 }
+@keyframes myt1{
+  0%{margin-left:8%;}
+  100%{margin-left:-100%}
+}
 @media screen and (max-width:700px){ 
   .boxes{ 
   width:90%;
@@ -439,7 +443,7 @@ img.icon {
   margin-left: 5%;
   }
   .skillspan{
-    animation: myt 20s linear infinite;
+    animation: myt1 20s linear infinite;
   }
   .skillspan1{
     animation: myt 80s linear infinite;
