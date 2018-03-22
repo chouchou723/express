@@ -39,16 +39,16 @@ app.use('/', index);
 //   maxAge:864000
 // }));
 // app.use('/home', home);
-app.use(express.static(path.join(__dirname, 'public'),{
-  maxAge:864000
-}));
-app.use('/reactspa',reactspa);
+// app.use(express.static(path.join(__dirname, 'public'),{
+//   maxAge:864000
+// }));
+// app.use('/reactspa',reactspa);
 
 
 
-app.get('/drrr',(req,res)=>{
-  res.sendFile(__dirname+'/public/client/index.html')
-})
+// app.get('/drrr',(req,res)=>{
+//   res.sendFile(__dirname+'/public/client/index.html')
+// })
 
 app.get('/weather/:city', (req,res,next)=>{
   let city = req.params.city;
