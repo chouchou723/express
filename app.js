@@ -85,7 +85,7 @@ Referer:'http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/eccf0f
 'X-Requested-With':'XMLHttpRequest'
   }
   let c1;
-  request.get('http://http://shanghaicity.openservice.kankanews.com/')
+  request.get('http://shanghaicity.openservice.kankanews.com/')
 	.end((err,rr)=>{
   		c1 = rr.headers['set-cookie'].join(',').match(/(HMACCOUNT=.+?);/)[1];
 	  console.log(c1);
