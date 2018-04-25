@@ -117,8 +117,8 @@ Host:'shanghaicity.openservice.kankanews.com',
 		.end((err,hrr)=>{
 			console.log(hrr.headers['set-cookie'])
 			 c2 = hrr.headers['set-cookie'].join(',').match(/(Hm_1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
-			 c4 = hrr.headers['set-cookie'].join(',').match(/(Hm_lpvt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
-			 c5 = hrr.headers['set-cookie'].join(',').match(/(Hm_lvt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
+			 c4 = 'Hm_lvt_6f69830ae7173059e935b61372431b35=1524617432,1524617445,1524619410,1524620683';
+			 c5 = 'Hm_lpvt_6f69830ae7173059e935b61372431b35='+new Date().valueOf();
 		console.log(c2);
 			 c3 = c1+'; '+c2+ '; _gat=1';
 			console.log(c3);
