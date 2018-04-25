@@ -97,7 +97,7 @@ Host:'shanghaicity.openservice.kankanews.com',
   request.get('http://shanghaicity.openservice.kankanews.com/')
 	.set(base1)
 	.end((err,rr)=>{
-  		c1 = rr.headers['set-cookie'].join(',').match(/(HMACCOUNT=.+?);/);
+  		c1 = rr.headers['set-cookie'];
 	    console.log(rr);
 	  console.log(c1);
 	  	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
