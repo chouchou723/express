@@ -94,16 +94,21 @@ Host:'shanghaicity.openservice.kankanews.com',
 'Upgrade-Insecure-Requests':1,
 'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'}
   let c1= 'HMACCOUNT=70EC6624AE5CF7B8';
- 	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
-// 	  .set('Cookie',c1)
+	request.get('https://hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=375x667&vl=667&et=0&ja=0&ln=zh-cn&lo=0&lt=1524620683&rnd=719889793&si=6f69830ae7173059e935b61372431b35&v=1.2.30&lv=3&ct=!!&tt=%E4%B8%8A%E6%B5%B7%E5%8F%91%E5%B8%83-%E5%B8%82%E6%94%BF%E5%A4%A7%E5%8E%85&sn=34872')
+	.end((err,hr)=>{
+		let c1 = hr.headers['set-cookie'];
+		console.log(hr);
+		console.log(c1);
+		 	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
+	  .set('Cookie',c1)
 	.end((err,response)=>{
- 	let cookie = response.headers.cookie;
-		console.log(cookie);
+ 	//let cookie = response.headers['set-cookie'];
+		//console.log(cookie);
 		request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
 	 // .set('Accept', '*/*')
 	 // .set('Host', 'shanghaicity.openservice.kankanews.com')
 	.set(baseH)
-		.set('Cookie', 'Hm_1vt_6f69830ae7173059e935b61372431b35=eSgsNFrgE+taSQelHDQmAg==; _ga=GA1.2.433396333.1524634604; _gat=1; Hm_lvt_6f69830ae7173059e935b61372431b35=1524617432,1524617445,1524619410,1524620683; Hm_lpvt_6f69830ae7173059e935b61372431b35=1524634616; HH=62a591244fd688264fb6931a83f9102ebd718282; HK=3ca28a707fda69ce700f2deb53f7e3b25fa35f81; HG=251ccbb2661ea3a0f5a19f0d7c5866dd60bb18ae; HA=b39bb0aab777026f0f195fea6922f492e6d1be62; HB=YjM5YmIwYWFiNzc3MDI2ZjBmMTk1ZmVhNjkyMmY0OTJlNmQxYmU2Mg==; HC=f0e72be98f7bdc03c37e1d469040285232f0c41e; HD=MjAxODA0MjU=; HY=MjAxODA0MjU=3ca28a707fda69ce700f2deb53f7e3b25fa35f81251ccbb2661ea3a0f5a19f0d7c5866dd60bb18aed6e9f8c8ef2d4dcdb59884ad640290bd7afc9729; HO=TWpBeE9EQTBNalU9MTNNVEUyTWpNeTM2VFc5NmFXeHNZUzgxTGpBZ0tFMWhZMmx1ZEc5emFEc2dWVHNnU1c1MFpXd2dUV0ZqSUU5VElGZ2dNVEJmTmw4MU95QmtaUzFrWlNrZ1FYQndiR1ZYWldKTGFYUXZOVE0wTGpFMUt5QW9TMGhVVFV3c0lHeHBhMlVnUjJWamEyOHBJRlpsY25OcGIyNHZOUzR3TGpNZ1UyRm1ZWEpwTHpVek15NHhPUzQwZDZlOWY4YzhlZjJkNGRjZGI1OTg4NGFkNjQwMjkwYmQ3YWZjOTcyOQ==; Hm_p1vt_6f69830ae7173059e935b61372431b35=eSgsNFrgE/haSQelHDQnAg==')
+		
   // .set('Content-Type','application/x-www-form-urlencoded')
    // .set('User-Agent', userAgent)
 	.type("form")
@@ -120,6 +125,9 @@ Host:'shanghaicity.openservice.kankanews.com',
     })
   
   })
+	})
+	
+
 
 
 
