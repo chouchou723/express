@@ -95,6 +95,17 @@ Host:'shanghaicity.openservice.kankanews.com',
 'Upgrade-Insecure-Requests':1,
 'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
   }
+   let base2 = {
+  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+'Accept-Encoding':'gzip, deflate',
+'Accept-Language':'zh-CN,zh;q=0.9',
+	   'Cache-Control':'max-age=0',
+	  Connection:'keep-alive',
+
+Host:'shanghaicity.openservice.kankanews.com',
+'Upgrade-Insecure-Requests':1,
+'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
+  }
   let c1,c2,c3,c4,c5;
 	request.get('https://hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=375x667&vl=667&et=0&ja=0&ln=zh-cn&lo=0&lt=1524620683&rnd=719889793&si=6f69830ae7173059e935b61372431b35&v=1.2.30&lv=3&ct=!!&tt=%E4%B8%8A%E6%B5%B7%E5%8F%91%E5%B8%83-%E5%B8%82%E6%94%BF%E5%A4%A7%E5%8E%85&sn=34872')
 		.end((err,hr)=>{
@@ -102,7 +113,9 @@ Host:'shanghaicity.openservice.kankanews.com',
 		//console.log(hr);
 		console.log(c1);
 		request.get('http://shanghaicity.openservice.kankanews.com')
+		.set(base2)
 		.end((err,hrr)=>{
+			console.log(hrr.headers['set-cookie'])
 			 c2 = hrr.headers['set-cookie'].join(',').match(/(Hm_1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
 			 c4 = hrr.headers['set-cookie'].join(',').match(/(Hm_lpvt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
 			 c5 = hrr.headers['set-cookie'].join(',').match(/(Hm_lvt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
