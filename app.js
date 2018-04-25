@@ -84,7 +84,13 @@ Referer:'http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/eccf0f
 'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
 'X-Requested-With':'XMLHttpRequest'
   }
-	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
+  let c1;
+  request.get('http://http://shanghaicity.openservice.kankanews.com/')
+	.end((err,rr)=>{
+  		c1 = res.headers['set-cookie'].join(',').match(/(HMACCOUNT=.+?);/)[1];
+	  console.log(c1);
+	  	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
+	  .set('Cookie',c1)
 	.end((err,response)=>{
 // 	let cookie = response.headers['set-cookie'].join(',');
 		console.log(response);
@@ -103,11 +109,14 @@ Referer:'http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/eccf0f
   sid:sid})
     .end((err,json) => {
       // 处理数据
-	console.log(json)
+// 	console.log(json)
     arr = json.body;
     res.json(arr)
     })
 	})
+  
+  })
+
 
 
   //axios.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop',para,{headers: {'Content-Type': 'application/x-www-form-urlencoded','User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'},})
