@@ -99,8 +99,13 @@ Host:'shanghaicity.openservice.kankanews.com',
 		let c1 = hr.headers['set-cookie'].join(',').match(/(HMACCOUNT=.+?);/)[1];
 		//console.log(hr);
 		console.log(c1);
-		 	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
-	  .set('Cookie',c1)
+		request.get('http://shanghaicity.openservice.kankanews.com')
+		.end((err,hrr)=>{
+			let c2 = hrr.headers['set-cookie'].join(',').match(/(Hm_1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
+		console.log(c2);
+			let c3 = c1+c2
+					 	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
+	  .set('Cookie',c3)
 	.end((err,response)=>{
  	let cookie = response.headers['set-cookie'];
 		console.log(cookie);
@@ -126,6 +131,11 @@ Host:'shanghaicity.openservice.kankanews.com',
   
   })
 	})
+		
+		
+		
+		})
+
 	
 
 
