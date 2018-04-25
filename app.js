@@ -95,7 +95,7 @@ Host:'shanghaicity.openservice.kankanews.com',
 'Upgrade-Insecure-Requests':1,
 'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
   }
-  let c1,c2,c3;
+  let c1,c2,c3,c4,c5;
 	request.get('https://hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=375x667&vl=667&et=0&ja=0&ln=zh-cn&lo=0&lt=1524620683&rnd=719889793&si=6f69830ae7173059e935b61372431b35&v=1.2.30&lv=3&ct=!!&tt=%E4%B8%8A%E6%B5%B7%E5%8F%91%E5%B8%83-%E5%B8%82%E6%94%BF%E5%A4%A7%E5%8E%85&sn=34872')
 		.end((err,hr)=>{
 		 c1 = hr.headers['set-cookie'].join(',').match(/(HMACCOUNT=.+?);/)[1];
@@ -104,6 +104,8 @@ Host:'shanghaicity.openservice.kankanews.com',
 		request.get('http://shanghaicity.openservice.kankanews.com')
 		.end((err,hrr)=>{
 			 c2 = hrr.headers['set-cookie'].join(',').match(/(Hm_1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
+			 c4 = hrr.headers['set-cookie'].join(',').match(/(Hm_lpvt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
+			 c5 = hrr.headers['set-cookie'].join(',').match(/(Hm_lvt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
 		console.log(c2);
 			 c3 = c1+'; '+c2+ '; _gat=1';
 			console.log(c3);
@@ -112,7 +114,6 @@ Host:'shanghaicity.openservice.kankanews.com',
 	.set('Cookie',c3)
 	.end((err,response)=>{
 							let cook = response.headers['set-cookie'].join(',');
-							console.log(cook)
  	let cookie1 = cook.match(/(HA=.+?);/)[1];
 							let cookie2 =cook.match(/(HA=.+?);/)[1];
 							let cookie3 =cook.match(/(HB=.+?);/)[1];
@@ -123,11 +124,11 @@ Host:'shanghaicity.openservice.kankanews.com',
 							let cookie8 =cook.match(/(HK=.+?);/)[1];
 							let cookie9 =cook.match(/(HO=.+?);/)[1];
 							let cookie10 =cook.match(/(HY=.+?);/)[1];
-							//let cookie11 =cook.match(/(Hm_1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
-							//let cookie12 =cook.match(/(Hm_lpvt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
-							//let cookie13 =cook.match(/(Hm_lvt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
-							//let cookie14 =cook.match(/(Hm_p1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
-	 let fin = [cookie1,cookie2,cookie3,cookie4,cookie5,cookie6,cookie7,cookie8,cookie9,cookie10]
+							let cookie11 =c2;
+							let cookie12 =c4;
+							let cookie13 =c5;
+							let cookie14 =cook.match(/(Hm_p1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
+	 let fin = [cookie1,cookie2,cookie3,cookie4,cookie5,cookie6,cookie7,cookie8,cookie9,cookie10,cookie11,cookie12,cookie13,cookie14]
 	 let finC = fin.join('; ');
 		//console.log(response);
 							//console.log(cookie);
