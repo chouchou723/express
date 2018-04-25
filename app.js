@@ -76,7 +76,10 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
 	request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
    .set('Content-Type','application/x-www-form-urlencoded')
     .set('User-Agent', userAgent)
-  .send(para)
+  .send({
+  stoptype:direction,
+  stopid:stopId,
+  sid:sid})
     .end((err,json) => {
       // 处理数据
 	console.log(json)
