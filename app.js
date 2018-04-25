@@ -61,6 +61,8 @@ app.get('/weather/:city', (req,res,next)=>{
   })
   .catch(err => console.log(err))
 });
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
 app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
   let sid = req.params.sid;
   let direction = req.params.direction;
