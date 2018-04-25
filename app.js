@@ -143,6 +143,7 @@ Host:'shanghaicity.openservice.kankanews.com',
 							let cookie14 =cook.match(/(Hm_p1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
 	 let fin = [cookie1,cookie2,cookie3,cookie4,cookie5,cookie6,cookie7,cookie8,cookie9,cookie10,cookie11,cookie12,cookie13,cookie14]
 	 let finC = fin.join('; ');
+							console.log(finC);
 		//console.log(response);
 							//console.log(cookie);
 		request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
