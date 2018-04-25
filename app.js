@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const axios = require('axios');
-import request from 'superagent'
+var request = require('superagent');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var home = require('./routes/home');
