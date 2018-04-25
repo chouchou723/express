@@ -103,7 +103,7 @@ Host:'shanghaicity.openservice.kankanews.com',
 		.end((err,hrr)=>{
 			let c2 = hrr.headers['set-cookie'].join(',').match(/(Hm_1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
 		console.log(c2);
-			let c3 = c1+c2;
+			let c3 = c1+'; '+c2;
 			console.log(c3);
 					 	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
 	  .set('Cookie',c3)
