@@ -61,6 +61,23 @@ app.get('/weather/:city', (req,res,next)=>{
   })
   .catch(err => console.log(err))
 });
+app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
+  let sid = req.params.sid;
+  let direction = req.params.direction;
+  let stopId = req.params.stopId;
+  let arr;
+  let para = {
+  stoptype:direction,
+  stopid:stopId,
+  sid:sid}
+  axios.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop',para)
+  .then(json => {
+     arr = json.data
+  }).then(()=>{
+    res.json(arr)
+  })
+  .catch(err => console.log(err))
+});
 
 app.get('/astro/fortune/:astroid', (req,res,next)=>{
   let astroid = req.params.astroid;
