@@ -74,12 +74,13 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
   sid:sid}
   let userAgent = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4';
 	request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
-	  .set('Accept', '*/*')
-	  .set('Host', 'shanghaicity.openservice.kankanews.com')
+	.type("form")
+	 // .set('Accept', '*/*')
+	 // .set('Host', 'shanghaicity.openservice.kankanews.com')
 	.set('Origin', 'http://shanghaicity.openservice.kankanews.com')
-   .set('Content-Type','application/x-www-form-urlencoded')
+  // .set('Content-Type','application/x-www-form-urlencoded')
     .set('User-Agent', userAgent)
-	.set('X-Requested-With', 'XMLHttpRequest')
+	
 	//.set('Cookie','Hm_p1vt_6f69830ae7173059e935b61372431b35=eSgsNFrgBI1ZtQehHGwBAg==; _ga=GA1.2.610622215.1524630670; _gat=1; Hm_lvt_6f69830ae7173059e935b61372431b35=1524617432,1524617445,1524619410,1524620683; Hm_1vt_6f69830ae7173059e935b61372431b35=eSgsNFrgBJ5ZtQehHGxBAg==; Hm_lpvt_6f69830ae7173059e935b61372431b35=1524630687; HH=62a591244fd688264fb6931a83f9102ebd718282; HK=4f9106f1ece1c7d5c148554763995cf9509b1556; HG=e5df8244d3b2c699c5109f44a4a5ea93564c1d9d; HA=d3a60b5acadc502d42b71f9aecc85eb52a1c14ad; HB=ZDNhNjBiNWFjYWRjNTAyZDQyYjcxZjlhZWNjODVlYjUyYTFjMTRhZA==; HC=9edfe983d41edad254d4e13890323ef3404d2296; HD=MjAxODA0MjU=; HY=MjAxODA0MjU=4f9106f1ece1c7d5c148554763995cf9509b1556e5df8244d3b2c699c5109f44a4a5ea93564c1d9dd6e9f8c8ef2d4dcdb59884ad640290bd7afc9729; HO=TWpBeE9EQTBNalU9MTJNVEUyTWpNeTMxVFc5NmFXeHNZUzgxTGpBZ0tFMWhZMmx1ZEc5emFEc2dWVHNnU1c1MFpXd2dUV0ZqSUU5VElGZ2dNVEJmTmw4MU95QmtaUzFrWlNrZ1FYQndiR1ZYWldKTGFYUXZOVE0wTGpFMUt5QW9TMGhVVFV3c0lHeHBhMlVnUjJWamEyOHBJRlpsY25OcGIyNHZOUzR3TGpNZ1UyRm1ZWEpwTHpVek15NHhPUzQwZDZlOWY4YzhlZjJkNGRjZGI1OTg4NGFkNjQwMjkwYmQ3YWZjOTcyOQ==')
   .send({
   stoptype:direction,
