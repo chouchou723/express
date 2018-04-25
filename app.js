@@ -77,7 +77,7 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
    .set({ 'Content-Type': 'application/x-www-form-urlencoded' })
     .set({ 'User-Agent': userAgent })
   .send(para)
-    .end(json => {
+    .end((err,json) => {
       // 处理数据
     arr = json.data;
     res.json(arr)
