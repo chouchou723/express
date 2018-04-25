@@ -62,7 +62,7 @@ app.get('/weather/:city', (req,res,next)=>{
   .catch(err => console.log(err))
 });
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-
+axios.defaults.headers.post['User-Agent'] = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4';
 app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
   let sid = req.params.sid;
   let direction = req.params.direction;
