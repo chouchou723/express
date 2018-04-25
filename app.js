@@ -100,7 +100,7 @@ Referer:'http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/eccf0f
   sid:sid})
     .end((err,json) => {
       // 处理数据
-	console.log(json.body)
+	console.log(json)
     arr = json.body;
     res.json(arr)
     })
