@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 const axios = require('axios');
-
+import request from 'superagent'
 var index = require('./routes/index');
 var users = require('./routes/users');
 var home = require('./routes/home');
@@ -72,13 +72,23 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
   stoptype:direction,
   stopid:stopId,
   sid:sid}
-  axios.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop',para,{headers: {'Content-Type': 'application/x-www-form-urlencoded','User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'},})
-  .then(json => {
-     arr = json.data
-  }).then(()=>{
+  let userAgent = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4';
+	request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
+   .set({ 'Content-Type': 'application/x-www-form-urlencoded' })
+    .set({ 'User-Agent': userAgent })
+  .send(para)
+    .end(json => {
+      // 处理数据
+    arr = json.data;
     res.json(arr)
-  })
-  .catch(err => console.log(err))
+    })
+  //axios.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop',para,{headers: {'Content-Type': 'application/x-www-form-urlencoded','User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'},})
+  //.then(json => {
+  //   arr = json.data
+  //}).then(()=>{
+   // res.json(arr)
+  //})
+  //.catch(err => console.log(err))
 });
 
 app.get('/astro/fortune/:astroid', (req,res,next)=>{
