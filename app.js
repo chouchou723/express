@@ -111,17 +111,17 @@ Host:'shanghaicity.openservice.kankanews.com',
 		.end((err,hr)=>{
 		 c1 = hr.headers['set-cookie'].join(',').match(/(HMACCOUNT=.+?);/)[1];
 		//console.log(hr);
-		console.log(c1);
+		//console.log(c1);
 		request.get('http://shanghaicity.openservice.kankanews.com')
 		.set(base2)
 		.end((err,hrr)=>{
-			console.log(hrr.headers['set-cookie'])
+			//console.log(hrr.headers['set-cookie'])
 			 c2 = hrr.headers['set-cookie'].join(',').match(/(Hm_1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
 			 c4 = 'Hm_lvt_6f69830ae7173059e935b61372431b35=1524617432,1524617445,1524619410,1524620683';
 			 c5 = 'Hm_lpvt_6f69830ae7173059e935b61372431b35='+new Date().valueOf();
-		console.log(c2);
+		//console.log(c2);
 			 c3 = c1+'; '+c2+ '; _gat=1';
-			console.log(c3);
+			//console.log(c3);
 					 	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
 	  .set(base1)
 	.set('Cookie',c3)
@@ -143,7 +143,7 @@ Host:'shanghaicity.openservice.kankanews.com',
 							let cookie14 =cook.match(/(Hm_p1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
 	 let fin = [cookie1,cookie2,cookie3,cookie4,cookie5,cookie6,cookie7,cookie8,cookie9,cookie10,cookie11,cookie12,cookie13,cookie14]
 	 let finC = fin.join('; ');
-							console.log(finC);
+							//console.log(finC);
 		//console.log(response);
 							//console.log(cookie);
 		request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
@@ -162,7 +162,7 @@ Host:'shanghaicity.openservice.kankanews.com',
     .end((err,json) => {
       // 处理数据
 	console.log(json)
-    arr = {};
+    arr = json.text;
     res.json(arr)
     })
   
