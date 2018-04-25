@@ -81,15 +81,18 @@ Connection:'keep-alive',
 Host:'shanghaicity.openservice.kankanews.com',
 Origin:'http://shanghaicity.openservice.kankanews.com',
 Referer:'http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/eccf0f60e0b483f03cdedaa907e01436',
-	  Cookie:'Hm_p1vt_6f69830ae7173059e935b61372431b35=eSgsNFrgDIdZtQehHH3IAg==; _ga=GA1.2.1689183123.1524632712; _gat=1; Hm_lvt_6f69830ae7173059e935b61372431b35=1524617432,1524617445,1524619410,1524620683; Hm_1vt_6f69830ae7173059e935b61372431b35=eSgsNFrgDKNZtQehHH4vAg==; Hm_lpvt_6f69830ae7173059e935b61372431b35=1524632740; HH=62a591244fd688264fb6931a83f9102ebd718282; HK=f507e95d9769add5c1b60a766ee9e4954fde01fa; HG=588415740c6bafd82f77d25f94290268439ea591; HA=8313f2ae6cb74f8f524a3d2019ba31c42abd18ad; HB=ODMxM2YyYWU2Y2I3NGY4ZjUyNGEzZDIwMTliYTMxYzQyYWJkMThhZA==; HC=e18a1979ae2b23d58688a2a31999befdcce6bc16; HD=MjAxODA0MjU=; HY=MjAxODA0MjU=f507e95d9769add5c1b60a766ee9e4954fde01fa588415740c6bafd82f77d25f94290268439ea591d6e9f8c8ef2d4dcdb59884ad640290bd7afc9729; HO=TWpBeE9EQTBNalU9MTNNVEUyTWpNeTA1VFc5NmFXeHNZUzgxTGpBZ0tFMWhZMmx1ZEc5emFEc2dWVHNnU1c1MFpXd2dUV0ZqSUU5VElGZ2dNVEJmTmw4MU95QmtaUzFrWlNrZ1FYQndiR1ZYWldKTGFYUXZOVE0wTGpFMUt5QW9TMGhVVFV3c0lHeHBhMlVnUjJWamEyOHBJRlpsY25OcGIyNHZOUzR3TGpNZ1UyRm1ZWEpwTHpVek15NHhPUzQwZDZlOWY4YzhlZjJkNGRjZGI1OTg4NGFkNjQwMjkwYmQ3YWZjOTcyOQ==',
 'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
 'X-Requested-With':'XMLHttpRequest'
   }
-  let userAgent = 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4';
-	request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
+	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
+	.end((err,response)=>{
+	let cookie = response.headers['set-cookie'].join(',');
+		console.log(cookie);
+		request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
 	 // .set('Accept', '*/*')
 	 // .set('Host', 'shanghaicity.openservice.kankanews.com')
 	.set(baseH)
+		.set('Cookie', cookie)
   // .set('Content-Type','application/x-www-form-urlencoded')
    // .set('User-Agent', userAgent)
 	.type("form")
@@ -104,6 +107,9 @@ Referer:'http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/eccf0f
     arr = json.body;
     res.json(arr)
     })
+	})
+
+
   //axios.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop',para,{headers: {'Content-Type': 'application/x-www-form-urlencoded','User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'},})
   //.then(json => {
   //   arr = json.data
