@@ -96,7 +96,6 @@ Host:'shanghaicity.openservice.kankanews.com',
   }
   let c1= 'HMACCOUNT=70EC6624AE5CF7B8';
 	request.get('https://hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=375x667&vl=667&et=0&ja=0&ln=zh-cn&lo=0&lt=1524620683&rnd=719889793&si=6f69830ae7173059e935b61372431b35&v=1.2.30&lv=3&ct=!!&tt=%E4%B8%8A%E6%B5%B7%E5%8F%91%E5%B8%83-%E5%B8%82%E6%94%BF%E5%A4%A7%E5%8E%85&sn=34872')
-	.set(base1)
 		.end((err,hr)=>{
 		let c1 = hr.headers['set-cookie'].join(',').match(/(HMACCOUNT=.+?);/)[1];
 		//console.log(hr);
