@@ -113,7 +113,7 @@ Host:'shanghaicity.openservice.kankanews.com',
 	.end((err,response)=>{
  	let cookie = response.headers['set-cookie'].join('; ');
 		//console.log(response);
-							console.log(cookie);
+							//console.log(cookie);
 		request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
 	 // .set('Accept', '*/*')
 	 // .set('Host', 'shanghaicity.openservice.kankanews.com')
@@ -130,7 +130,7 @@ Host:'shanghaicity.openservice.kankanews.com',
     .end((err,json) => {
       // 处理数据
 	console.log(json)
-    arr = json.body;
+    arr = {};
     res.json(arr)
     })
   
