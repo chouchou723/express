@@ -87,7 +87,7 @@ Referer:'http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/eccf0f
   let c1;
   request.get('http://http://shanghaicity.openservice.kankanews.com/')
 	.end((err,rr)=>{
-  		c1 = res.headers['set-cookie'].join(',').match(/(HMACCOUNT=.+?);/)[1];
+  		c1 = rr.headers['set-cookie'].join(',').match(/(HMACCOUNT=.+?);/)[1];
 	  console.log(c1);
 	  	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
 	  .set('Cookie',c1)
