@@ -93,18 +93,12 @@ Connection:'keep-alive',
 Host:'shanghaicity.openservice.kankanews.com',
 'Upgrade-Insecure-Requests':1,
 'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'}
-  let c1;
-  request.get('http://shanghaicity.openservice.kankanews.com/')
-	.set(base1)
-	.end((err,rr)=>{
-  		c1 = rr.headers['set-cookie'];
-	    console.log(rr);
-	  console.log(c1);
-	  	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
+  let c1= 'HMACCOUNT=70EC6624AE5CF7B8';
+ 	request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
 	  .set('Cookie',c1)
 	.end((err,response)=>{
-// 	let cookie = response.headers['set-cookie'].join(',');
-		//console.log(response);
+ 	let cookie = response.headers['set-cookie'].join(',');
+		console.log(cookie);
 		request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
 	 // .set('Accept', '*/*')
 	 // .set('Host', 'shanghaicity.openservice.kankanews.com')
@@ -124,7 +118,6 @@ Host:'shanghaicity.openservice.kankanews.com',
     arr = json.body;
     res.json(arr)
     })
-	})
   
   })
 
