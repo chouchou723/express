@@ -162,7 +162,7 @@ Host:'shanghaicity.openservice.kankanews.com',
     .end((err,json) => {
       // 处理数据
 	console.log(json)
-    arr = json.text;
+    arr = JSON.parse(json.text);
     res.json(arr)
     })
   
