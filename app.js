@@ -79,6 +79,7 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
   .send(para)
     .end((err,json) => {
       // 处理数据
+	console.log(json)
     arr = json.data;
     res.json(arr)
     })
