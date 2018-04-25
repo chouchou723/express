@@ -111,14 +111,30 @@ Host:'shanghaicity.openservice.kankanews.com',
 	  .set(base1)
 	.set('Cookie',c3)
 	.end((err,response)=>{
- 	let cookie = response.headers['set-cookie'].join('; ');
+							let cook = response.headers['set-cookie'].join(',')
+ 	let cookie1 = cook.match(/(HA=.+?);/)[1];
+							let cookie2 =cook.match(/(HA=.+?);/)[1];
+							let cookie3 =cook.match(/(HB=.+?);/)[1];
+							let cookie4 =cook.match(/(HC=.+?);/)[1];
+							let cookie5 =cook.match(/(HD=.+?);/)[1];
+							let cookie6 =cook.match(/(HG=.+?);/)[1];
+							let cookie7 =cook.match(/(HH=.+?);/)[1];
+							let cookie8 =cook.match(/(HK=.+?);/)[1];
+							let cookie9 =cook.match(/(HO=.+?);/)[1];
+							let cookie10 =cook.match(/(HY=.+?);/)[1];
+							let cookie11 =cook.match(/(Hm_1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
+							let cookie12 =cook.match(/(Hm_lpvt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
+							let cookie13 =cook.match(/(Hm_lvt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
+							let cookie14 =cook.match(/(Hm_p1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
+	 let fin = [cookie1,cookie2,cookie3,cookie4,cookie5,cookie6,cookie7,cookie8,cookie9,cookie10,cookie11,cookie12,cookie13,cookie14]
+	 let finC = fin.join('; ');
 		//console.log(response);
 							//console.log(cookie);
 		request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
 	 // .set('Accept', '*/*')
 	 // .set('Host', 'shanghaicity.openservice.kankanews.com')
 	.set(baseH)
-	.set('Cookie',cookie)	
+	.set('Cookie',finC)	
   // .set('Content-Type','application/x-www-form-urlencoded')
    // .set('User-Agent', userAgent)
 	.type("form")
