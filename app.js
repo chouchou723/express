@@ -83,7 +83,7 @@ Pragma:'no-cache',
   .end((err,resp)=>{
     // console.log(resp)
     // arr = resp.data;
-    res.json(resp.text)
+    res.json(JSON.parse(resp.text))
   })
 })
 //公交接口查询实时
