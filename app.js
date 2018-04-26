@@ -61,6 +61,31 @@ app.get('/weather/:city', (req,res,next)=>{
   })
   .catch(err => console.log(err))
 });
+//公交名查询id
+app.get('/busname/:name',(req,res,next)=>{
+  let name = req.params.name;
+  let base1 = {
+    Accept:'*/*',
+  'Accept-Encoding':'gzip, deflate',
+  'Cache-Control':'no-cache',
+      Connection:'keep-alive',
+      'Content-Length':42,
+      Origin:'http://shanghaicity.openservice.kankanews.com',
+  Referer:'http://shanghaicity.openservice.kankanews.com/',
+Pragma:'no-cache',
+  Host:'shanghaicity.openservice.kankanews.com',
+  'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
+}
+  request.post('http://shanghaicity.openservice.kankanews.com/public/bus/get')
+  // .set(base1)
+  .type("form")
+  .send({ idnum: name })
+  .end((err,resp)=>{
+    // console.log(resp)
+    // arr = resp.data;
+    res.json(resp.text)
+  })
+})
 //公交接口查询实时
 app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
   let sid = req.params.sid;

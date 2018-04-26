@@ -34,10 +34,10 @@ var servers = https.createServer(options,app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(8180);
-servers.listen(8190);
-// server.listen(80);
-// servers.listen(443);
+// server.listen(8180);
+// servers.listen(8190);
+server.listen(80);
+servers.listen(443);
 server.on('error', onError);
 servers.on('error', onError);
 server.on('listening', onListening);
