@@ -81,6 +81,9 @@ Pragma:'no-cache',
   .type("form")
   .send({ idnum: name })
   .end((err,resp)=>{
+    if (err) {
+      return next(err);
+    }
     // console.log(resp)
     // arr = resp.data;
     res.json(JSON.parse(resp.text))
@@ -133,12 +136,18 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
   let c1,c2,c3,c4,c5;
 	request.get('https://hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=375x667&vl=667&et=0&ja=0&ln=zh-cn&lo=0&lt=1524620683&rnd=719889793&si=6f69830ae7173059e935b61372431b35&v=1.2.30&lv=3&ct=!!&tt=%E4%B8%8A%E6%B5%B7%E5%8F%91%E5%B8%83-%E5%B8%82%E6%94%BF%E5%A4%A7%E5%8E%85&sn=34872')
 		.end((err,hr)=>{
+      if (err) {
+        return next(err);
+      }
 		 c1 = hr.headers['set-cookie'].join(',').match(/(HMACCOUNT=.+?);/)[1];
 		//console.log(hr);
 		//console.log(c1);
         request.get('http://shanghaicity.openservice.kankanews.com')
               .set(base2)
               .end((err,hrr)=>{
+                if (err) {
+                  return next(err);
+                }
                 //console.log(hrr.headers['set-cookie'])
                 c2 = hrr.headers['set-cookie'].join(',').match(/(Hm_1vt_6f69830ae7173059e935b61372431b35=.+?);/)[1];
                 c4 = 'Hm_lvt_6f69830ae7173059e935b61372431b35=1524617432,1524617445,1524619410,1524620683';
@@ -150,6 +159,9 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
 	              .set(base1)
 	             .set('Cookie',c3)
 	            .end((err,response)=>{
+                if (err) {
+                  return next(err);
+                }
 							let cook = response.headers['set-cookie'].join(',');
  	            let cookie1 = cook.match(/(HA=.+?);/)[1];
 							let cookie2 =cook.match(/(HA=.+?);/)[1];
@@ -172,6 +184,9 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
                 .end((err,json) => {
                   // 处理数据
               // console.log(json)
+              if (err) {
+                return next(err);
+              }
                 arr = JSON.parse(json.text);
                 res.json(arr)
                 })
