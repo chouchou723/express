@@ -195,7 +195,21 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
 	        })	
 		})
 });
-
+//电影详细
+app.get('/movie/subject/:id', (req,res,next)=>{
+  let id = req.params.id;
+  let arr
+//   console.log(type)
+  axios.get(`https://douban.uieee.com/v2/movie/subject/${id}`)
+  .then(json => {
+// 	  console.log(json)
+     arr = json.data
+  }).then(()=>{
+    res.json(arr)
+  })
+  .catch(err => console.log(err))
+});
+//电影
 app.get('/movie/:type', (req,res,next)=>{
   let type = req.params.type;
   let start = req.query.start;
