@@ -220,8 +220,10 @@ app.get('/movie/:type', (req,res,next)=>{
 	 let count = req.query.count;
 	 let city = req.query.city;
   let arr
-  axios.get(`https://douban.uieee.com/v2/movie/&{type}`,{params:{start,count,city}})
+  console.log(type)
+  axios.get(`https://douban.uieee.com/v2/movie/&{type}`,{params:{start:start,count:count,city:city}})
   .then(json => {
+	  console.log(json)
      arr = json.data
   }).then(()=>{
     res.json(arr)
