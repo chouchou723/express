@@ -214,6 +214,27 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+app.get('/movie/:type', (req,res,next)=>{
+  let type = req.params.type;
+  let start = req.query.start;
+	 let count = req.query.count;
+	 let city = req.query.city;
+  let arr
+  axios.get(`https://douban.uieee.com/v2/movie/&{type}`,{params:{start,count,city}})
+  .then(json => {
+     arr = json.data
+  }).then(()=>{
+    res.json(arr)
+  })
+  .catch(err => console.log(err))
+});
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
