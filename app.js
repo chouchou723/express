@@ -76,8 +76,10 @@ app.get('/busstop/:sid', (req,res,next)=>{
         let  end_earlytime = $('.downgoing .time .s').text().trim();
         let  end_latetime = $('.downgoing .time .m').text().trim();
         let busLine = {start_stop,end_stop,start_earlytime,start_latetime,end_earlytime,end_latetime};
-        let stops = $('div .station .name').map(function(i,e){
-            return {zdmc: $(this).text().trim(),id:'chou'+i}  
+        let stops =[]
+	 $('div .station .name').each(function(i,e){
+		
+            stops[i] =  {zdmc: $(this).text().trim(),id:'chou'+i}  
         })
         let lineResults0 = {direction:true,stops};
 	    data = {busLine,lineResults0};
@@ -86,9 +88,11 @@ app.get('/busstop/:sid', (req,res,next)=>{
 	   axios.get(`http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}/stoptype/1`)
 		   .then(resd=>{
 		   let $ = cheerio.load(resd.data);
-		   let stops = $('div .station .name').map(function(i,e){
-			    return {zdmc: $(this).text().trim(),id:'chou'+i}  
-			})
+		   let stops =[]
+	 $('div .station .name').each(function(i,e){
+		
+            stops[i] =  {zdmc: $(this).text().trim(),id:'chou'+i}  
+        })
 	    	let lineResult1 = {direction:false,stops};
 		   data = {...data,lineResult1};
 		  
