@@ -93,8 +93,8 @@ app.get('/busstop/:sid', (req,res,next)=>{
 		
             stops[i] =  {zdmc: $(this).text().trim(),id:'chou'+i}  
         })
-	    	let lineResult1 = {direction:false,stops};
-		   data = {...data,lineResult1};
+	    	let lineResults1 = {direction:false,stops};
+		   data = {...data,lineResults1};
 		  
 	   }).then(()=>{
 		//   console.log(data)
