@@ -94,7 +94,7 @@ app.get('/busstop/:sid', (req,res,next)=>{
 		  
 	   }).then(()=>{
 		   console.log(data)
-		   let fdata = JSON.parse(json.data);
+		   let fdata = JSON.parse(JSON.stringify(data));
 	    res.json(fdata)
 	   }).catch(err => console.log(err))
 	
