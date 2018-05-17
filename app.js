@@ -67,7 +67,7 @@ app.get('/busstop/:sid', (req,res,next)=>{
   let data = {}
   axios.get(`http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`)
   .then(json => {
-    let arr = json.data
+    	let arr = json.data
 	let $ = cheerio.load(arr);
         let start_stop = $('.upgoing p span').first().text().trim();
         let end_stop = $('.upgoing p span').next().text().trim();
@@ -93,6 +93,7 @@ app.get('/busstop/:sid', (req,res,next)=>{
 		   data = {...data,lineResult1};
 		  
 	   }).then(()=>{
+		   console.log(data)
 	    res.json(data)
 	   })
 	
