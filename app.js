@@ -116,7 +116,7 @@ app.get('/busname/:name',(req,res,next)=>{
       Connection:'keep-alive',
       'Content-Length':42,
       Origin:'http://shanghaicity.openservice.kankanews.com',
-  Referer:'http://shanghaicity.openservice.kankanews.com/',
+  Referer:'http://shanghaicity.openservice.kankanews.com/bus',
 Pragma:'no-cache',
   Host:'shanghaicity.openservice.kankanews.com',
   'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
