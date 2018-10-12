@@ -111,35 +111,31 @@ app.get('/busname/:name',(req,res,next)=>{
   let name = req.params.name;
   let base1 = {
     Accept:'*/*',
-  'Accept-Encoding':'gzip, deflate',
-  'Cache-Control':'no-cache',
+  'Accept-Encoding':'gzip, deflate, br',
+	   'Accept-Language':'zh-CN,zh;q=0.8',
+//   'Cache-Control':'no-cache',
       Connection:'keep-alive',
       'Content-Length':42,
+	   Host:'shanghaicity.openservice.kankanews.com',
       Origin:'http://shanghaicity.openservice.kankanews.com',
   Referer:'http://shanghaicity.openservice.kankanews.com/bus',
-Pragma:'no-cache',
-  Host:'shanghaicity.openservice.kankanews.com',
+// Pragma:'no-cache',
+//   Host:'shanghaicity.openservice.kankanews.com',
   'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
 }
   let base2 = {
           Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
         'Accept-Encoding':'gzip, deflate, br',
         'Accept-Language':'zh-CN,zh;q=0.9',
+	  'Cache-Contro':'max-age=0',
             Connection:'keep-alive',
         Host:'shanghaicity.openservice.kankanews.com',
         'Upgrade-Insecure-Requests':1,
         'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
   }
-   request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
-	              .set(base2)
-	            .end((err,response)=>{
-                if (err) {
-                  return next(err);
-                }
-	     let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
-	     request.post('http://shanghaicity.openservice.kankanews.com/public/bus/get')
-//   .set(base1)
-	.set('Cookie',c1)
+  	     request.post('http://shanghaicity.openservice.kankanews.com/public/bus/get')
+  .set(base1)
+// 	.set('Cookie',c1)
   .type("form")
   .send({ idnum: name })
   .end((err,resp)=>{
@@ -150,7 +146,16 @@ Pragma:'no-cache',
     // arr = resp.data;
     res.json(JSON.parse(resp.text))
   })
-   })
+//    request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
+// 	              .set(base2)
+// 	            .end((err,response)=>{
+//                 if (err) {
+//                   return next(err);
+//                 }
+// 	   console.log(response)
+// 	     let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
+
+//    })
   
 
 })
