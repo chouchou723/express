@@ -121,7 +121,7 @@ Pragma:'no-cache',
   Host:'shanghaicity.openservice.kankanews.com',
   'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
 }
-   let c1 = response.headers['set-cookie'];
+   let c1 = response.headers['set-cookie'].join(',');
   request.post('http://shanghaicity.openservice.kankanews.com/public/bus/get')
   .set(base1)
 	.set('Cookie',c1)
