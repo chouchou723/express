@@ -65,7 +65,7 @@ app.get('/weather/:city', (req,res,next)=>{
 app.get('/busstop/:sid', (req,res,next)=>{
 	let sid =  req.params.sid;
   let data = {}
-  axios.get(`http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`)
+  axios.get(`https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`)
   .then(json => {
     	let arr = json.data
 	let $ = cheerio.load(arr);
@@ -85,7 +85,7 @@ app.get('/busstop/:sid', (req,res,next)=>{
 	    data = {busLine,lineResults0};
 	
   }).then(()=>{
-	   axios.get(`http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}/stoptype/1`)
+	   axios.get(`https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}/stoptype/1`)
 		   .then(resd=>{
 		   let $ = cheerio.load(resd.data);
 		   let stops =[]
@@ -117,8 +117,8 @@ app.get('/busname/:name',(req,res,next)=>{
       Connection:'keep-alive',
       'Content-Length':42,
 	   Host:'shanghaicity.openservice.kankanews.com',
-      Origin:'http://shanghaicity.openservice.kankanews.com',
-  Referer:'http://shanghaicity.openservice.kankanews.com/bus',
+      Origin:'https://shanghaicity.openservice.kankanews.com',
+  Referer:'https://shanghaicity.openservice.kankanews.com/bus',
 // Pragma:'no-cache',
 //   Host:'shanghaicity.openservice.kankanews.com',
   'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
@@ -149,7 +149,7 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
   stoptype:direction,
   stopid:stopId,
   sid:sid}
-  let ref = `http://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`
+  let ref = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`
     let baseH = {
         Accept:'*/*',
         'Accept-Encoding':'gzip, deflate',
@@ -157,7 +157,7 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
         Connection:'keep-alive',
         'Content-Length':57,
         Host:'shanghaicity.openservice.kankanews.com',
-        Origin:'http://shanghaicity.openservice.kankanews.com',
+        Origin:'https://shanghaicity.openservice.kankanews.com',
         Referer:ref,
         'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
         'X-Requested-With':'XMLHttpRequest'
@@ -167,13 +167,13 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
         'Accept-Encoding':'gzip, deflate',
         'Accept-Language':'zh-CN,zh;q=0.9',
             Connection:'keep-alive',
-        Referer:'http://shanghaicity.openservice.kankanews.com/',
+        Referer:'https://shanghaicity.openservice.kankanews.com/',
 
         Host:'shanghaicity.openservice.kankanews.com',
         'Upgrade-Insecure-Requests':1,
         'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
   }
-    request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
+    request.get('https://shanghaicity.openservice.kankanews.com/public/bus')
 	              .set(base1)
 	            .end((err,response)=>{
                 if (err) {
@@ -181,7 +181,7 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
                 }
 	     let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
 	    console.log(c1);
-   request.post('http://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
+   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
                 .set(baseH)
                 .set('Cookie',c1)
                 .type("form")
