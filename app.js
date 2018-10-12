@@ -127,7 +127,7 @@ Pragma:'no-cache',
                 if (err) {
                   return next(err);
                 }
-	    let c1 = response.headers['set-cookie'].join(',');
+	     let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
 	     request.post('http://shanghaicity.openservice.kankanews.com/public/bus/get')
 //   .set(base1)
 	.set('Cookie',c1)
