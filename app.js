@@ -125,7 +125,7 @@ app.get('/busname/:name',(req,res,next)=>{
 	  'X-Requested-With': 'XMLHttpRequest'
 }
   	     request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get')
-  .set(base1)
+//   .set(base1)
   .type("form")
   .send({ idnum: name })
   .end((err,resp)=>{
