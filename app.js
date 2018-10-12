@@ -65,7 +65,13 @@ app.get('/weather/:city', (req,res,next)=>{
 app.get('/busstop/:sid', (req,res,next)=>{
 	let sid =  req.params.sid;
   let data = {}
-  axios.get(`https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`)
+  axios.get(`https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`,
+	    {
+	  headers: {
+            'Accept': 'text/html '
+  		}
+	     }
+)
   .then(json => {
     	let arr = json.data
 	let $ = cheerio.load(arr);
@@ -85,7 +91,11 @@ app.get('/busstop/:sid', (req,res,next)=>{
 	    data = {busLine,lineResults0};
 	
   }).then(()=>{
-	   axios.get(`https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}/stoptype/1`)
+	   axios.get(`https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}/stoptype/1`,   {
+	  headers: {
+            'Accept': 'text/html '
+  		}
+	     })
 		   .then(resd=>{
 		   let $ = cheerio.load(resd.data);
 		   let stops =[]
