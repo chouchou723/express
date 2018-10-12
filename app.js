@@ -121,9 +121,15 @@ Pragma:'no-cache',
   Host:'shanghaicity.openservice.kankanews.com',
   'User-Agent':'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
 }
-   let c1 = response.headers['set-cookie'].join(',');
-  request.post('http://shanghaicity.openservice.kankanews.com/public/bus/get')
-  .set(base1)
+   request.get('http://shanghaicity.openservice.kankanews.com/public/bus')
+	              .set(base1)
+	            .end((err,response)=>{
+                if (err) {
+                  return next(err);
+                }
+	    let c1 = response.headers['set-cookie'].join(',');
+	     request.post('http://shanghaicity.openservice.kankanews.com/public/bus/get')
+//   .set(base1)
 	.set('Cookie',c1)
   .type("form")
   .send({ idnum: name })
@@ -131,10 +137,13 @@ Pragma:'no-cache',
     if (err) {
       return next(err);
     }
-    console.log(resp)
+//     console.log(resp)
     // arr = resp.data;
     res.json(JSON.parse(resp.text))
   })
+   })
+  
+
 })
 //公交接口查询实时
 app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
