@@ -68,12 +68,12 @@ app.get('/busstop/:sid', (req,res,next)=>{
   let url = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`
   axios.get(url,{
 // 	  url:url,
-	    responseType:'text',
-	    headers: {  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'}
+// 	    responseType:'text',
+// 	    headers: {  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'}
   }
 )
   .then(json => {
-// 	  console.log(json)
+	  console.log(json)
     	let arr = json.data
 	let $ = cheerio.load(arr);
         let start_stop = $('.upgoing p span').first().text().trim();
@@ -95,7 +95,8 @@ app.get('/busstop/:sid', (req,res,next)=>{
   }).then(()=>{
 	  let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}?stoptype=1`
 	   axios.get(u1,{
-		     responseType:'text' })
+// 		     responseType:'text'
+	   })
 		   .then(resd=>{
 		   let $ = cheerio.load(resd.data);
 		   let stops =[]
