@@ -72,6 +72,7 @@ app.get('/busstop/:sid', (req,res,next)=>{
   }
 )
   .then(json => {
+	  console.log(json)
     	let arr = json.data
 	let $ = cheerio.load(arr);
         let start_stop = $('.upgoing p span').first().text().trim();
