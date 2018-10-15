@@ -92,7 +92,8 @@ app.get('/busstop/:sid', (req,res,next)=>{
 	    data = {busLine,lineResults0};
 	
   }).then(()=>{
-	   axios.get({url:`https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}/stoptype/1`,
+	  let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}/stoptype/1`
+	   axios.get(u1,{
 		     responseType:'text' })
 		   .then(resd=>{
 		   let $ = cheerio.load(resd.data);
