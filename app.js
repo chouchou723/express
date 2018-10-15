@@ -73,11 +73,12 @@ app.get('/busstop/:sid', (req,res,next)=>{
   }
 )
   .then(json => {
-	  console.log(json)
+// 	  console.log(json)
     	let arr = json.data
 	let $ = cheerio.load(arr);
         let start_stop = $('.upgoing p span').first().text().trim();
         let end_stop = $('.upgoing p span').next().text().trim();
+	  console.log($('.upgoing p span'))
         let  start_earlytime = $('.upgoing .time .s').text().trim();
         let  start_latetime = $('.upgoing .time .m').text().trim();
         let  end_earlytime = $('.downgoing .time .s').text().trim();
