@@ -65,9 +65,11 @@ app.get('/weather/:city', (req,res,next)=>{
 app.get('/busstop/:sid', (req,res,next)=>{
 	let sid =  req.params.sid;
   let data = {}
-  axios.get({url:`https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`,
+  axios.get({
+	  url:`https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`,
 	    responseType:'text',
 	    headers: {  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'}
+  }
 )
   .then(json => {
     	let arr = json.data
