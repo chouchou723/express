@@ -79,10 +79,10 @@ app.get('/busstop/:sid', (req,res,next)=>{
         let start_stop = $('.upgoing p span').first().text().trim();
         let end_stop = $('.upgoing p span').eq(1).text().trim();
 // 	  console.log(end_stop,123)
-        let  start_earlytime = $('.upgoing .time .s').text().trim();
-        let  start_latetime = $('.upgoing .time .m').text().trim();
-        let  end_earlytime = $('.downgoing .time .s').text().trim();
-        let  end_latetime = $('.downgoing .time .m').text().trim();
+        let  start_earlytime = $('.upgoing .time .s').first().text().trim();
+        let  start_latetime = $('.upgoing .time .m').first().text().trim();
+        let  end_earlytime = $('.upgoing .time .s').eq(1).text().trim();
+        let  end_latetime = $('.upgoing .time .m').eq(1).text().trim();
         let busLine = {start_stop,end_stop,start_earlytime,start_latetime,end_earlytime,end_latetime};
         let stops =[]
 	 $('div .station .name').each(function(i,e){
@@ -191,7 +191,7 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
                   return next(err);
                 }
 	     let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
-	    console.log(c1);
+// 	    console.log(c1);
    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
                 .set(baseH)
                 .set('Cookie',c1)
@@ -199,7 +199,7 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
                 .send(para)
                 .end((err,json) => {
                   // 处理数据
-              console.log(json)
+//               console.log(json)
               if (err) {
                 return next(err);
               }
