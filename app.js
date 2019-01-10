@@ -64,7 +64,7 @@ app.get('/weather/:city', (req,res,next)=>{
 //获取全部公交列表
 app.get('/allbuslist',(req,res,next)=>{
 let url = 'https://shanghaicity.openservice.kankanews.com/public/bus';
-	axio.get(url).then(json=>{
+	axios.get(url).then(json=>{
 		let d = json.data;
 		let $ = cheerio.load(d);
 		let list
