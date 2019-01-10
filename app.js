@@ -80,7 +80,7 @@ let url = 'https://shanghaicity.openservice.kankanews.com/public/bus';
 		return list
 	}).then((list)=>{
 // 		   let fdata = JSON.parse(JSON.stringify(list));
-	    res.json(list)
+	    res.json({allLines:list})
 	   }).catch(err => console.log(err))
 })
 //公交站点
