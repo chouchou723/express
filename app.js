@@ -72,7 +72,7 @@ let url = 'https://shanghaicity.openservice.kankanews.com/public/bus';
 // 			console.log($(this).html())
 			if($(this).html().indexOf('119')>-1){
 				let t = $(this).html().replace(/[\r\n]/g,'').match(/data.*/g)[0].split('=')[1].replace(/\s/g,'');
-			list = t.split('[')[1].split(']')[0].split(',')
+			list = (t.split('[')[1].split(']')[0]).split(',')
 				return;
 			}
 		})
