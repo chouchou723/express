@@ -69,13 +69,13 @@ let url = 'https://shanghaicity.openservice.kankanews.com/public/bus';
 		let $ = cheerio.load(d);
 		let list
 		$('script').each(function(i,e){
-			console.log($(this).html())
+// 			console.log($(this).html())
 			if($(this).html().indexOf('119')>-1){
-			list = $(this).html().match(/data.*/)[0].split('=')[1]
+			list = $(this).html().replace(/[\r\n]/g,'').match(/data.*/g)[0].split('=')[1].replace(/\s/g,'')
 				return;
 			}
 		})
-// 		console.log(list)
+		console.log(list)
 		return list
 	}).then((list)=>{
 		   let fdata = JSON.parse(JSON.stringify(list));
