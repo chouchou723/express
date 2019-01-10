@@ -69,7 +69,7 @@ let url = 'https://shanghaicity.openservice.kankanews.com/public/bus';
 		let $ = cheerio.load(d);
 		let list
 		$('script').each(function(i,e){
-			console.log($(this).html();)
+			console.log($(this).html())
 			if($(this).html().indexOf('119')>-1){
 			list = $(this).match(/data.*/)[0].split('=')[1]
 				return;
