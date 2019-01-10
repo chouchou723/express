@@ -61,6 +61,25 @@ app.get('/weather/:city', (req,res,next)=>{
   })
   .catch(err => console.log(err))
 });
+//获取全部公交列表
+app.get('/allbuslist',(req,res,next)=>{
+let url = 'https://shanghaicity.openservice.kankanews.com/public/bus';
+	axio.get(url).then(json=>{
+		let d = json.data;
+		let $ = cheerio.load(d);
+		let list
+		$('script').each(function(i,e){
+			if($(this).text().indexOf('119')>-1){
+			list = $(this).match(/data.*/)[0].split('=')[1]
+				return;
+			}
+		})
+		return list
+	}).then((list)=>{
+		   let fdata = JSON.parse(JSON.stringify(list));
+	    res.json(fdata)
+	   }).catch(err => console.log(err))
+})
 //公交站点
 app.get('/busstop/:sid', (req,res,next)=>{
 	let sid =  req.params.sid;
