@@ -79,8 +79,8 @@ let url = 'https://shanghaicity.openservice.kankanews.com/public/bus';
 		console.log(list)
 		return list
 	}).then((list)=>{
-		   let fdata = JSON.parse(JSON.stringify(list));
-	    res.json(fdata)
+// 		   let fdata = JSON.parse(JSON.stringify(list));
+	    res.json(list)
 	   }).catch(err => console.log(err))
 })
 //公交站点
