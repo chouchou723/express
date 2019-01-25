@@ -129,7 +129,7 @@ app.get('/busstop/:sid', (req,res,next)=>{
         let lineResults0 = {direction:true,stops};
 	    data = {busLine,lineResults0};
 	
-  }).then((start_stop)=>{
+  }).then(()=>{
 // 	  if(!start_stop){
 // 		 res.send(500)
 // 		return
@@ -151,6 +151,10 @@ app.get('/busstop/:sid', (req,res,next)=>{
 	   }).then(()=>{
 		//   console.log(data)
 		   let fdata = JSON.parse(JSON.stringify(data));
+		   if(!fdata){
+		   res.send(500);
+			   return
+		   }
 	    res.json(fdata)
 	   }).catch(err => {
 	   res.send(500);
