@@ -130,10 +130,10 @@ app.get('/busstop/:sid', (req,res,next)=>{
 	    data = {busLine,lineResults0};
 	
   }).then((start_stop)=>{
-	  if(!start_stop){
-		 res.send(500)
-		return
-	  }
+// 	  if(!start_stop){
+// 		 res.send(500)
+// 		return
+// 	  }
 	  let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}?stoptype=1`
 	   axios.get(u1,{
 // 		     responseType:'text'
