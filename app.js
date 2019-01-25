@@ -76,15 +76,23 @@ let url = 'https://shanghaicity.openservice.kankanews.com/public/bus';
 // 				let t = $(this).html().replace(/[\r\n]/g,'').match(/data.*/g)[0].split('=')[1].replace(/\s/g,'');
 // 				console.log(t)
 				list = eval('('+('['+d+']')+')')//(t.split('[')[1].split(']')[0]).replace(/\'/g,'').split(',')
-				return;
+// 	return;
 			}
 		})
 // 		console.log(list)
 		return list
 	}).then((list)=>{
 // 		   let fdata = JSON.parse(JSON.stringify(list));
-	    res.send({allLines:list})
-	   }).catch(err => console.log(err))
+	if(list){
+		  res.send({allLines:list})
+	}else{
+		 res.send(500)
+	}
+	  
+	   }).catch(err => {
+	res.send(500);
+		console.log(err)
+	})
 })
 //公交站点
 app.get('/busstop/:sid', (req,res,next)=>{
@@ -102,6 +110,10 @@ app.get('/busstop/:sid', (req,res,next)=>{
     	let arr = json.data
 	let $ = cheerio.load(arr);
         let start_stop = $('.upgoing p span').first().text().trim();
+	  if(!start_stop){
+		 res.send(500)
+		return  start_stop
+	  }
         let end_stop = $('.upgoing p span').eq(1).text().trim();
 // 	  console.log(end_stop,123)
         let  start_earlytime = $('.upgoing .time .s').first().text().trim();
@@ -117,7 +129,11 @@ app.get('/busstop/:sid', (req,res,next)=>{
         let lineResults0 = {direction:true,stops};
 	    data = {busLine,lineResults0};
 	
-  }).then(()=>{
+  }).then((start_stop)=>{
+	  if(!start_stop){
+		 res.send(500)
+		return
+	  }
 	  let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}?stoptype=1`
 	   axios.get(u1,{
 // 		     responseType:'text'
@@ -136,11 +152,17 @@ app.get('/busstop/:sid', (req,res,next)=>{
 		//   console.log(data)
 		   let fdata = JSON.parse(JSON.stringify(data));
 	    res.json(fdata)
-	   }).catch(err => console.log(err))
+	   }).catch(err => {
+	   res.send(500);
+		   console.log(err)
+	   })
 	
    
   })
-  .catch(err => console.log(err))
+  .catch(err => {
+   res.send(500);
+	  console.log(err)
+  })
 });
 //公交名查询id
 app.get('/busname/:name',(req,res,next)=>{
@@ -166,10 +188,15 @@ app.get('/busname/:name',(req,res,next)=>{
   .send({ idnum: name })
   .end((err,resp)=>{
     if (err) {
+	      res.send(500);
       return next(err);
     }
 //     console.log(resp)
     // arr = resp.data;
+		     if(!resp.text){
+		       res.send(500);
+		     return
+		    }
     res.json(JSON.parse(resp.text))
   })
   
@@ -213,6 +240,7 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
 	              .set(base1)
 	            .end((err,response)=>{
                 if (err) {
+			res.send(500);
                   return next(err);
                 }
 	     let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
@@ -226,9 +254,14 @@ app.get('/bus/:sid/:direction/:stopId', (req,res,next)=>{
                   // 处理数据
 //               console.log(json)
               if (err) {
+		      res.send(500);
                 return next(err);
               }
                 arr = JSON.parse(json.text);
+	   if(!arr){
+		     res.send(500);
+		   return
+	   }
                 res.json(arr)
                 })
 	    })
