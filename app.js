@@ -94,11 +94,11 @@ app.get('/allbuslist', (req, res, next) => {
                 allLines: list
             })
         } else {
-            res.send(500)
+            res.sendStatus(500)
         }
 
     }).catch(err => {
-        res.send(500);
+        res.sendStatus(500);
         console.log(err)
     })
 })
@@ -110,15 +110,15 @@ app.get('/busstop/:sid', (req, res, next) => {
     axios.get(url, {
             // 	  url:url,
             // 	    responseType:'text',
-            // 	    headers: {  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'}
+            	    headers: {  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'}
         })
         .then(json => {
-            // 	  console.log(json)
+            	  console.log(json)
             let arr = json.data
             let $ = cheerio.load(arr);
             let start_stop = $('.upgoing p span').first().text().trim();
             if (!start_stop) {
-                res.send(500)
+                res.sendStatus(500)
                 return start_stop
             }
             let end_stop = $('.upgoing p span').eq(1).text().trim();
@@ -183,19 +183,19 @@ app.get('/busstop/:sid', (req, res, next) => {
                     //   console.log(data)
                     let fdata = JSON.parse(JSON.stringify(data));
                     if (!fdata) {
-                        res.send(500);
+                        res.sendStatus(500);
                         return
                     }
                     res.json(fdata)
                 }).catch(err => {
-                    res.send(500);
+                    res.sendStatus(500);
                     console.log(err)
                 })
 
 
         })
         .catch(err => {
-            res.send(500);
+            res.sendStatus(500);
             console.log(err)
         })
 });
@@ -224,15 +224,15 @@ app.get('/busname/:name', (req, res, next) => {
             idnum: name
         })
         .end((err, resp) => {
-        console.log(resp)
+//         console.log(resp)
             if (err) {
-                res.send(500);
+                res.sendStatus(500);
                 return next(err);
             }
             //     console.log(resp)
             // arr = resp.data;
             if (!resp.text) {
-                res.send(500);
+                res.sendStatus(500);
                 return
             }
         
@@ -280,7 +280,7 @@ app.get('/bus/:sid/:direction/:stopId', (req, res, next) => {
         .set(base1)
         .end((err, response) => {
             if (err) {
-                res.send(500);
+                res.sendStatus(500);
                 return next(err);
             }
             let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
@@ -294,12 +294,12 @@ app.get('/bus/:sid/:direction/:stopId', (req, res, next) => {
                     // 处理数据
                     //               console.log(json)
                     if (err) {
-                        res.send(500);
+                        res.sendStatus(500);
                         return next(err);
                     }
                     arr = JSON.parse(json.text);
                     if (!arr) {
-                        res.send(500);
+                        res.sendStatus(500);
                         return
                     }
                     res.json(arr)
