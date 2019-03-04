@@ -164,8 +164,9 @@ app.get('/busstop/:sid', (req, res, next) => {
             let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}?stoptype=1`
             axios.get(u1, {
                    Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                                     'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
-                              'Host': 'shanghaicity.openservice.kankanews.com'
+                                     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+                              'Host': 'shanghaicity.openservice.kankanews.com',
+                'Upgrade-Insecure-Requests': 1
                 })
                 .then(resd => {
                     let $ = cheerio.load(resd.data);
