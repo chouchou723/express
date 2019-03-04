@@ -116,10 +116,11 @@ app.get('/busstop/:sid', (req, res, next) => {
 }
         })
         .then(json => {
-            	  console.log(json)
+//             	  console.log(json)
             let arr = json.data
             let $ = cheerio.load(arr);
             let start_stop = $('.upgoing p span').first().text().trim();
+        console.log(start_stop)
             if (!start_stop) {
                 res.sendStatus(500)
                 return start_stop
@@ -162,7 +163,9 @@ app.get('/busstop/:sid', (req, res, next) => {
             // 	  }
             let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}?stoptype=1`
             axios.get(u1, {
-                    // 		     responseType:'text'
+                   Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                                     'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
+                              'Host': 'shanghaicity.openservice.kankanews.com'
                 })
                 .then(resd => {
                     let $ = cheerio.load(resd.data);
