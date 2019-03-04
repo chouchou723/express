@@ -162,13 +162,14 @@ app.get('/busstop/:sid', (req, res, next) => {
             // 		return
             // 	  }
             let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}?stoptype=1`
-            axios.get(u1, {
+            let ba =  {
                    Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                                      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
                               'Host': 'shanghaicity.openservice.kankanews.com',
                 'Upgrade-Insecure-Requests': 1
-                })
-                .then(resd => {
+                }
+            request.get(u1).set(ba).end((err,resd) => {
+                console.log(resd)
                     let $ = cheerio.load(resd.data);
                     let stops = []
                     $('div .station .name').each(function (i, e) {
@@ -198,6 +199,42 @@ app.get('/busstop/:sid', (req, res, next) => {
                     res.sendStatus(500);
                     console.log(err)
                 })
+//             axios.get(u1, {
+//                    Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+//                                      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+//                               'Host': 'shanghaicity.openservice.kankanews.com',
+//                 'Upgrade-Insecure-Requests': 1
+//                 })
+//                 .then(resd => {
+//                     let $ = cheerio.load(resd.data);
+//                     let stops = []
+//                     $('div .station .name').each(function (i, e) {
+
+//                         stops[i] = {
+//                             zdmc: $(this).text().trim(),
+//                             id: 'chou' + i
+//                         }
+//                     })
+//                     let lineResults1 = {
+//                         direction: false,
+//                         stops
+//                     };
+//                     data = { ...data,
+//                         lineResults1
+//                     };
+
+//                 }).then(() => {
+//                     //   console.log(data)
+//                     let fdata = JSON.parse(JSON.stringify(data));
+//                     if (!fdata) {
+//                         res.sendStatus(500);
+//                         return
+//                     }
+//                     res.json(fdata)
+//                 }).catch(err => {
+//                     res.sendStatus(500);
+//                     console.log(err)
+//                 })
 
 
         })
