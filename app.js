@@ -247,11 +247,8 @@ app.get('/busstop/:sid', (req, res, next) => {
 app.get('/busname/:name', (req, res, next) => {
 //     let name = req.params.name;
     let name = rlencode.decode(req.params.name, 'utf-8');
-<<<<<<< HEAD
-    console.log(name);
-=======
+
 //     console.log(name);
->>>>>>> 5e5928d0513d08b85245faa98a9ddf552c6a0272
     let base1 = {
         Accept: '*/*',
         'Accept-Encoding': 'gzip, deflate, br',
