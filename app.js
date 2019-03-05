@@ -293,7 +293,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 //公交名查询id
 app.get('/busname/:name', (req, res, next) => {
 //  let name = req.params.name//.split('%').length===1?req.params.name.split('%')[0]:req.params.name.split('%')[0]+'路';
-   let name = rlencode.parse(`idnum:req.params.name`, {charset: 'gbk'});
+   let name = rlencode.parse(`idnum:${req.params.name}`, {charset: 'gbk'});
     console.log(name);
     let base1 = {
         Accept: '*/*',
