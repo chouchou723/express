@@ -11,7 +11,7 @@ var users = require('./routes/users');
 var home = require('./routes/home');
 var reactspa = require('./routes/spa');
 var cheerio = require('cheerio');
-
+var rlencode = require('rlencode');
 
 
 var app = express();
@@ -169,7 +169,7 @@ app.get('/busstop/:sid', (req, res, next) => {
                 'Upgrade-Insecure-Requests': 1
                 }
             request.get(u1).set(ba).end((err,resd) => {
-                console.log(resd)
+//                 console.log(resd)
                     let $ = cheerio.load(resd.data);
                     let stops = []
                     $('div .station .name').each(function (i, e) {
@@ -245,7 +245,9 @@ app.get('/busstop/:sid', (req, res, next) => {
 });
 //公交名查询id
 app.get('/busname/:name', (req, res, next) => {
-    let name = req.params.name;
+//     let name = req.params.name;
+    let name = rlencode.decode(req.params.name, 'gbk');
+    console.log(name);
     let base1 = {
         Accept: '*/*',
         'Accept-Encoding': 'gzip, deflate, br',
