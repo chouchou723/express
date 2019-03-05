@@ -125,7 +125,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 //         })
 //         .then(json => {
             	  console.log(jsonR)
-            let arr = jsonR.data
+            let arr = jsonR.text
             let $ = cheerio.load(arr);
             let start_stop = $('.upgoing p span').first().text().trim();
 //         console.log(start_stop)
@@ -173,7 +173,7 @@ app.get('/busstop/:sid', (req, res, next) => {
                 }
             request.get(u1).set(ba).end((err,resd) => {
 //                 console.log(resd)
-                    let $ = cheerio.load(resd.data);
+                    let $ = cheerio.load(resd.text);
                     let stops = []
                     $('div .station .name').each(function (i, e) {
 
