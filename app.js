@@ -124,15 +124,15 @@ app.get('/busstop/:sid', (req, res, next) => {
 // }
 //         })
 //         .then(json => {
-            	  console.log(jsonR)
+//             	  console.log(jsonR)
             let arr = jsonR.text
             let $ = cheerio.load(arr);
             let start_stop = $('.upgoing p span').first().text().trim();
 //         console.log(start_stop)
-            if (!start_stop) {
-                res.sendStatus(500)
-                return start_stop
-            }
+//             if (!start_stop) {
+//                 res.sendStatus(500)
+//                 return start_stop
+//             }
             let end_stop = $('.upgoing p span').eq(1).text().trim();
             // 	  console.log(end_stop,123)
             let start_earlytime = $('.upgoing .time .s').first().text().trim();
