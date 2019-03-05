@@ -256,19 +256,19 @@ app.get('/busname/:name', (req, res, next) => {
         Connection: 'keep-alive',
         'Content-Length': 42,
         Host: 'shanghaicity.openservice.kankanews.com',
-        Origin: 'https://shanghaicity.openservice.kankanews.com',
+      //  Origin: 'https://shanghaicity.openservice.kankanews.com',
         Referer: 'https://shanghaicity.openservice.kankanews.com/bus',
         // Pragma:'no-cache',
         //   Host:'shanghaicity.openservice.kankanews.com',
         'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
-        'X-Requested-With': 'XMLHttpRequest'
+        //'X-Requested-With': 'XMLHttpRequest'
     }
 //         .type("form")
  
-    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).send({
+    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').type('form').set(base1).send({
             idnum: req.params.name
         }).end((err, resp) => {
-        console.log(err)
+        console.log(err,resp)
             if (err) {
                 res.sendStatus(500);
                 return next(err);
