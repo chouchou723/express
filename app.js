@@ -271,57 +271,22 @@ app.get('/busname/:name', (req, res, next) => {
         //'X-Requested-With': 'XMLHttpRequest'
     }
 //         .type("form")
- request(
-    { method: 'POST'
-    , url: 'https://shanghaicity.openservice.kankanews.com/public/bus/get'
-    , headers: {
-        Accept: '*/*',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Accept-Language': 'zh-CN,zh;q=0.8',
-        //   'Cache-Control':'no-cache',
-        Connection: 'keep-alive',
-        'Content-Length': 42,
-        Host: 'shanghaicity.openservice.kankanews.com',
-      //  Origin: 'https://shanghaicity.openservice.kankanews.com',
-        Referer: 'https://shanghaicity.openservice.kankanews.com/bus',
-        // Pragma:'no-cache',
-        //   Host:'shanghaicity.openservice.kankanews.com',
-        'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
-        //'X-Requested-With': 'XMLHttpRequest'
-    }
-    , body:{idnum:name}
-    }
-  , function (err, resp, body) {
-      console.log(resp);
-        if (err) {
-                res.sendStatus(500);
-                return next(err);
+
+   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).send({idnum: name}).end((err, resp) => {
+       console.log(err,resp)
+           if (err) {
+               res.sendStatus(500);
+               return next(err);
             }
-            //     console.log(resp)
-            // arr = resp.data;
+                console.log(resp)
+            arr = resp.data;
             if (!resp.text) {
-                res.sendStatus(500);
+               res.sendStatus(500);
                 return
             }
         
             res.json(JSON.parse(resp.text))
-    }
-  )
-   // request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').send({idnum: name}).end((err, resp) => {
-     //   console.log(err,resp)
-       //     if (err) {
-         //       res.sendStatus(500);
-           //     return next(err);
-            //}
-            //     console.log(resp)
-            // arr = resp.data;
-            //if (!resp.text) {
-              //  res.sendStatus(500);
-                //return
-            //}
-        
-            //res.json(JSON.parse(resp.text))
-        //})
+        })
 
 
 })
