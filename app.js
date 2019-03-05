@@ -124,7 +124,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 // }
 //         })
 //         .then(json => {
-//             	  console.log(jsonR)
+            	  console.log(jsonR)
             let arr = jsonR.text
             let $ = cheerio.load(arr);
             let start_stop = $('.upgoing p span').first().text().trim();
@@ -294,7 +294,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 app.get('/busname/:name', (req, res, next) => {
  let name = req.params.name//.split('%').length===1?req.params.name.split('%')[0]:req.params.name.split('%')[0]+'路';
    // let name = rlencode.decode(req.params.name, 'utf-8');
-    console.log(name);
+//     console.log(name);
     let base1 = {
         Accept: '*/*',
         'Accept-Encoding': 'gzip, deflate, br',
@@ -313,7 +313,7 @@ app.get('/busname/:name', (req, res, next) => {
 //         .type("form")
 
    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').type('form').set(base1).send({idnum: rlencode(name)}).end((err, resp) => {
-       console.log(err,resp)
+//        console.log(err,resp)
            if (err) {
                res.sendStatus(500);
                return next(err);
