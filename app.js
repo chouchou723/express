@@ -273,7 +273,7 @@ app.get('/busname/:name', (req, res, next) => {
 //         .type("form")
  request(
     { method: 'POST'
-    , uri: 'https://shanghaicity.openservice.kankanews.com/public/bus/get'
+    , url: 'https://shanghaicity.openservice.kankanews.com/public/bus/get'
     , headers:base1
      ,body:{idnum:name}
     }
