@@ -263,14 +263,13 @@ app.get('/busname/:name', (req, res, next) => {
         'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
         'X-Requested-With': 'XMLHttpRequest'
     }
-    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get')
-          .set(base1)
 //         .type("form")
-        .send({
+ 
+    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).send({
             idnum: rlencode.decode(req.params.name, 'utf-8')
         })
         .end((err, resp) => {
-        console.log(resp)
+        console.log(err)
             if (err) {
                 res.sendStatus(500);
                 return next(err);
