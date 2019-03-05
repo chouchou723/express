@@ -315,7 +315,7 @@ app.get('/busname/:name', (req, res, next) => {
     }
 //         .type("form")
 
-   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).type('form').send({ idnum:req.params.name}).then((resp) => {
+   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).type('form').send({ idnum:rlencode.decode(a, 'utf8')}).then((resp) => {
        console.log(resp)
 //            if (err) {
 //                res.sendStatus(500);
