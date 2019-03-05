@@ -294,7 +294,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 app.get('/busname/:name', (req, res, next) => {
  let name = req.params.name//.split('%').length===1?req.params.name.split('%')[0]:req.params.name.split('%')[0]+'路';
 //    let name = rlencode.parse(‘idnum:’+req.params.name, {charset: 'utf-8'});
-    console.log(name);
+    console.log(typeof name);
     let base1 = {
         'Accept': '*/*',
         'Accept-Encoding': 'gzip, deflate, br',
