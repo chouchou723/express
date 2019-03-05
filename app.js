@@ -108,10 +108,10 @@ app.get('/busstop/:sid', (req, res, next) => {
     let data = {}
     let url = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`
     let bba = {  'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                  'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+                  'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
                               'Host': 'shanghaicity.openservice.kankanews.com',
               // Origin:'https://shanghaicity.openservice.kankanews.com',
-               Referer: 'https://shanghaicity.openservice.kankanews.com/public/bus',
+               'Referer': 'https://shanghaicity.openservice.kankanews.com/public/bus',
                 'Upgrade-Insecure-Requests': '1'
 }
      request.get(url).set(bba).then((jsonR) => {
@@ -166,7 +166,7 @@ app.get('/busstop/:sid', (req, res, next) => {
         let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}?stoptype=1`
             let ba =  {
                    Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                                     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+                                     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36',
                               'Host': 'shanghaicity.openservice.kankanews.com',
                 Referer: 'https://shanghaicity.openservice.kankanews.com/public/bus',
                 'Upgrade-Insecure-Requests': 1
