@@ -192,6 +192,8 @@ app.get('/busstop/:sid', (req, res, next) => {
                     }
                     res.json(fdata)
         })
+         
+     })
 //                 .then(() => {
             // 	  if(!start_stop){
             // 		 res.send(500)
@@ -314,7 +316,7 @@ app.get('/busname/:name', (req, res, next) => {
                res.sendStatus(500);
                return next(err);
             }
-                console.log(resp)
+//                 console.log(resp)
 //             arr = resp.data;
             if (!resp.text) {
                res.sendStatus(500);
