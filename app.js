@@ -107,12 +107,12 @@ app.get('/busstop/:sid', (req, res, next) => {
     let sid = req.params.sid;
     let data = {}
     let url = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`
-    let bba = {  'Accept':'*/*',
+    let bba = {  'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                   'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
                               'Host': 'shanghaicity.openservice.kankanews.com',
-               Origin:'https://shanghaicity.openservice.kankanews.com',
+              // Origin:'https://shanghaicity.openservice.kankanews.com',
                Referer: 'https://shanghaicity.openservice.kankanews.com/public/bus',
-                'X-Requested-With': 'XMLHttpRequest'
+                'Upgrade-Insecure-Requests': '1'
 }
      request.get(url).type('form').set(bba).then((json) => {
 //     axios.get(url, {
@@ -124,7 +124,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 // }
 //         })
 //         .then(json => {
-            	  console.log(json)
+            	  console.log(json.data)
             let arr = json.data
             let $ = cheerio.load(arr);
             let start_stop = $('.upgoing p span').first().text().trim();
