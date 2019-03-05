@@ -310,8 +310,7 @@ app.get('/busname/:name', (req, res, next) => {
 //         'Referer': 'https://shanghaicity.openservice.kankanews.com/public/bus',
         // Pragma:'no-cache',
         //   Host:'shanghaicity.openservice.kankanews.com',
-        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_2 like Mac OS X) AppleWebKit/603.2.4 '
-                          '(KHTML, like Gecko) Mobile/14F89 MicroMessenger/6.5.10 NetType/WIFI Language/zh_CN',
+        'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_2 like Mac OS X) AppleWebKit/603.2.4 (KHTML, like Gecko) Mobile/14F89 MicroMessenger/6.5.10 NetType/WIFI Language/zh_CN',
 //         'X-Requested-With': 'XMLHttpRequest'
     }
 //         .type("form")
