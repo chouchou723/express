@@ -107,15 +107,20 @@ app.get('/busstop/:sid', (req, res, next) => {
     let sid = req.params.sid;
     let data = {}
     let url = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`
-    axios.get(url, {
-            // 	  url:url,
-            // 	    responseType:'text',
-            	    headers: {  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    let bba = {  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                                      'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
                               'Host': 'shanghaicity.openservice.kankanews.com'
 }
-        })
-        .then(json => {
+     request.get(url).set(bba).end((err,json) => {
+//     axios.get(url, {
+            // 	  url:url,
+            // 	    responseType:'text',
+//             	    headers: {  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+//                                      'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
+//                               'Host': 'shanghaicity.openservice.kankanews.com'
+// }
+//         })
+//         .then(json => {
 //             	  console.log(json)
             let arr = json.data
             let $ = cheerio.load(arr);
@@ -155,13 +160,7 @@ app.get('/busstop/:sid', (req, res, next) => {
                 busLine,
                 lineResults0
             };
-
-        }).then(() => {
-            // 	  if(!start_stop){
-            // 		 res.send(500)
-            // 		return
-            // 	  }
-            let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}?stoptype=1`
+        let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}?stoptype=1`
             let ba =  {
                    Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                                      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
@@ -192,7 +191,44 @@ app.get('/busstop/:sid', (req, res, next) => {
                         return
                     }
                     res.json(fdata)
-                })
+        })
+//                 .then(() => {
+            // 	  if(!start_stop){
+            // 		 res.send(500)
+            // 		return
+            // 	  }
+//             let u1 = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}?stoptype=1`
+//             let ba =  {
+//                    Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+//                                      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+//                               'Host': 'shanghaicity.openservice.kankanews.com',
+//                 'Upgrade-Insecure-Requests': 1
+//                 }
+//             request.get(u1).set(ba).end((err,resd) => {
+//                 console.log(resd)
+//                     let $ = cheerio.load(resd.data);
+//                     let stops = []
+//                     $('div .station .name').each(function (i, e) {
+// 
+//                         stops[i] = {
+//                             zdmc: $(this).text().trim(),
+//                             id: 'chou' + i
+//                         }
+//                     })
+//                     let lineResults1 = {
+//                         direction: false,
+//                         stops
+//                     };
+//                     data = { ...data,
+//                         lineResults1
+//                     };
+//   let fdata = JSON.parse(JSON.stringify(data));
+//                     if (!fdata) {
+//                         res.sendStatus(500);
+//                         return
+//                     }
+//                     res.json(fdata)
+//                 })
 //                 .then(() => {
 //                     //   console.log(data)
 //                     let fdata = JSON.parse(JSON.stringify(data));
