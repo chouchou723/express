@@ -114,7 +114,7 @@ app.get('/busstop/:sid', (req, res, next) => {
                Referer: 'https://shanghaicity.openservice.kankanews.com/public/bus',
                 'Upgrade-Insecure-Requests': '1'
 }
-     request.get(url).type('form').set(bba).then((json) => {
+     request.get(url).type('form').set(bba).then((jsonR) => {
 //     axios.get(url, {
             // 	  url:url,
             // 	    responseType:'text',
@@ -124,11 +124,11 @@ app.get('/busstop/:sid', (req, res, next) => {
 // }
 //         })
 //         .then(json => {
-            	  console.log(json.data)
-            let arr = json.data
+            	  console.log(jsonR)
+            let arr = jsonR.data
             let $ = cheerio.load(arr);
             let start_stop = $('.upgoing p span').first().text().trim();
-        console.log(start_stop)
+//         console.log(start_stop)
             if (!start_stop) {
                 res.sendStatus(500)
                 return start_stop
