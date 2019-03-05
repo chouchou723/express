@@ -326,7 +326,7 @@ app.get('/busname/:name', (req, res, next) => {
             }
         
             res.json(JSON.parse(resp.text))
-        })
+        }).catch(err=>{console.log(err)})
 
 
 })
