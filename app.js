@@ -114,7 +114,7 @@ app.get('/busstop/:sid', (req, res, next) => {
                Referer: 'https://shanghaicity.openservice.kankanews.com/public/bus',
                 'X-Requested-With': 'XMLHttpRequest'
 }
-     request.get(url).type('form').set(bba).end((err,json) => {
+     request.get(url).type('form').set(bba).then((json) => {
 //     axios.get(url, {
             // 	  url:url,
             // 	    responseType:'text',
