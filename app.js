@@ -246,8 +246,8 @@ app.get('/busstop/:sid', (req, res, next) => {
 //公交名查询id
 app.get('/busname/:name', (req, res, next) => {
 //     let name = req.params.name;
-    let name = rlencode.decode(req.params.name, 'gbk');
-    console.log(name);
+    let name = rlencode.decode(req.params.name, 'utf-8');
+//     console.log(name);
     let base1 = {
         Accept: '*/*',
         'Accept-Encoding': 'gzip, deflate, br',
@@ -270,7 +270,7 @@ app.get('/busname/:name', (req, res, next) => {
             idnum: name
         })
         .end((err, resp) => {
-//         console.log(resp)
+        console.log(resp)
             if (err) {
                 res.sendStatus(500);
                 return next(err);
