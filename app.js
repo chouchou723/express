@@ -110,6 +110,7 @@ app.get('/busstop/:sid', (req, res, next) => {
     let bba = {  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                                      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
                               'Host': 'shanghaicity.openservice.kankanews.com',
+               Referer: 'https://shanghaicity.openservice.kankanews.com/public/bus',
                 'Upgrade-Insecure-Requests': 1
 }
      request.get(url).set(bba).end((err,json) => {
@@ -166,6 +167,7 @@ app.get('/busstop/:sid', (req, res, next) => {
                    Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                                      'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
                               'Host': 'shanghaicity.openservice.kankanews.com',
+                Referer: 'https://shanghaicity.openservice.kankanews.com/public/bus',
                 'Upgrade-Insecure-Requests': 1
                 }
             request.get(u1).set(ba).end((err,resd) => {
