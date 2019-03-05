@@ -124,7 +124,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 // }
 //         })
 //         .then(json => {
-            	  console.log(jsonR)
+//             	  console.log(jsonR)
             let arr = jsonR.text
             let $ = cheerio.load(arr);
             let start_stop = $('.upgoing p span').first().text().trim();
@@ -294,7 +294,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 app.get('/busname/:name', (req, res, next) => {
  let name = req.params.name//.split('%').length===1?req.params.name.split('%')[0]:req.params.name.split('%')[0]+'路';
    // let name = rlencode.decode(req.params.name, 'utf-8');
-//     console.log(name);
+    console.log(name);
     let base1 = {
         Accept: '*/*',
         'Accept-Encoding': 'gzip, deflate, br',
@@ -303,17 +303,17 @@ app.get('/busname/:name', (req, res, next) => {
         Connection: 'keep-alive',
         'Content-Length': 42,
         Host: 'shanghaicity.openservice.kankanews.com',
-      //  Origin: 'https://shanghaicity.openservice.kankanews.com',
+       Origin: 'https://shanghaicity.openservice.kankanews.com',
         Referer: 'https://shanghaicity.openservice.kankanews.com/bus',
         // Pragma:'no-cache',
         //   Host:'shanghaicity.openservice.kankanews.com',
         'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
-        //'X-Requested-With': 'XMLHttpRequest'
+        'X-Requested-With': 'XMLHttpRequest'
     }
 //         .type("form")
 
-   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').type('form').set(base1).send({idnum: name}).end((err, resp) => {
-//        console.log(err,resp)
+   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').type('form').set(base1).send({idnum: rlencode(name)}).end((err, resp) => {
+       console.log(err,resp)
            if (err) {
                res.sendStatus(500);
                return next(err);
