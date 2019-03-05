@@ -124,7 +124,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 // }
 //         })
 //         .then(json => {
-            	  console.log(json.data)
+            	  console.log(json)
             let arr = json.data
             let $ = cheerio.load(arr);
             let start_stop = $('.upgoing p span').first().text().trim();
@@ -313,7 +313,7 @@ app.get('/busname/:name', (req, res, next) => {
 //         .type("form")
 
    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').type('form').set(base1).send({idnum: name}).end((err, resp) => {
-       console.log(err,resp)
+//        console.log(err,resp)
            if (err) {
                res.sendStatus(500);
                return next(err);
