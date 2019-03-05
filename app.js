@@ -267,7 +267,7 @@ app.get('/busname/:name', (req, res, next) => {
           .set(base1)
 //         .type("form")
         .send({
-            idnum: name
+            idnum: rlencode.decode(req.params.name, 'utf-8')
         })
         .end((err, resp) => {
         console.log(resp)
