@@ -11,7 +11,7 @@ var users = require('./routes/users');
 var home = require('./routes/home');
 var reactspa = require('./routes/spa');
 var cheerio = require('cheerio');
-var rlencode = require('rlencode');
+var rlencode = require('urlencode');
 
 
 var app = express();
