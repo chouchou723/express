@@ -292,12 +292,12 @@ app.get('/busstop/:sid', (req, res, next) => {
 });
 //公交名查询id
 app.get('/busname/:name', (req, res, next) => {
- let name = req.params.name;//.split('%').length===1?req.params.name.split('%')[0]:req.params.name.split('%')[0]+'路';
+ var name = req.params.name;//.split('%').length===1?req.params.name.split('%')[0]:req.params.name.split('%')[0]+'路';
 //    let name = rlencode.parse(‘idnum:’+req.params.name, {charset: 'utf-8'});
-    let a = rlencode(name, 'utf8');
-    console.log(a);
+    var aname = rlencode(name, 'utf-8');
+    console.log(aname);
 //     console.log(rlencode(name, 'utf8'));
-   console.log( rlencode.decode(a, 'utf8')); 
+   console.log( rlencode.decode(aname, 'utf-8')); 
     let base1 = {
         'Accept': '*/*',
         'Accept-Encoding': 'gzip, deflate, br',
@@ -315,7 +315,7 @@ app.get('/busname/:name', (req, res, next) => {
     }
 //         .type("form")
 
-   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).type('form').send({ idnum:rlencode.decode(a, 'utf8')}).then((resp) => {
+   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).type('form').send({ idnum:rlencode.decode(aname, 'utf8')}).then((resp) => {
        console.log(resp)
 //            if (err) {
 //                res.sendStatus(500);
