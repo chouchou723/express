@@ -114,7 +114,7 @@ app.get('/busstop/:sid', (req, res, next) => {
                Referer: 'https://shanghaicity.openservice.kankanews.com/public/bus',
                 'Upgrade-Insecure-Requests': '1'
 }
-     request.get(url).type('form').set(bba).then((jsonR) => {
+     request.get(url).set(bba).then((jsonR) => {
 //     axios.get(url, {
             // 	  url:url,
             // 	    responseType:'text',
