@@ -107,13 +107,14 @@ app.get('/busstop/:sid', (req, res, next) => {
     let sid = req.params.sid;
     let data = {}
     let url = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`
-    let bba = {  Accept:'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                                     'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
+    let bba = {  'Accept':'*/*',
+                  'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1',
                               'Host': 'shanghaicity.openservice.kankanews.com',
+               Origin:'https://shanghaicity.openservice.kankanews.com',
                Referer: 'https://shanghaicity.openservice.kankanews.com/public/bus',
-                'Upgrade-Insecure-Requests': 1
+                'X-Requested-With': 'XMLHttpRequest'
 }
-     request.get(url).set(bba).end((err,json) => {
+     request.get(url).type('form').set(bba).end((err,json) => {
 //     axios.get(url, {
             // 	  url:url,
             // 	    responseType:'text',
@@ -311,7 +312,7 @@ app.get('/busname/:name', (req, res, next) => {
     }
 //         .type("form")
 
-   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').type('form').set(base1).send({idnum: name}).end((err, resp) => {
+   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).send({idnum: name}).end((err, resp) => {
 //        console.log(err,resp)
            if (err) {
                res.sendStatus(500);
