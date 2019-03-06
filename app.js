@@ -370,7 +370,7 @@ app.get('/busname/:name', (req, res, next) => {
         'Content-Length': 57,
         Host: 'shanghaicity.openservice.kankanews.com',
         Origin: 'https://shanghaicity.openservice.kankanews.com',
-        Referer: ref,
+        Referer: 'https://shanghaicity.openservice.kankanews.com/',
         'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
         'X-Requested-With': 'XMLHttpRequest'
     }
