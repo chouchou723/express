@@ -35,6 +35,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public/Portfolio-page'), {
     maxAge: 864000
 }));
+app.all("*", (req, res, next) => {    
+    let host = req.headers.host;
+    host = host.replace(/\:\d+$/, ''); // Remove port number
+    res.redirect(307, `https://${host}${req.path}`);
+});
+
 app.use('/', index);
 
 // app.use(express.static(path.join(__dirname, 'public/home'),{
