@@ -393,14 +393,28 @@ app.get('/busname/:name', (req, res, next) => {
         'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
     }
     //获取垃圾分类
+    var garbageBase = {
+    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+'Accept-Encoding': 'gzip, deflate',
+'Accept-Language': 'zh-CN,zh;q=0.9',
+Host:'weixin.sh-service.com',
+Referer: 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx?kw=%E7%89%9B%E8%82%89',
+'Upgrade-Insecure-Requests': 1,
+'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
+}
 app.get('/searchGarbage/:search',(req,res,next)=>{
         let search = req.params.search;
     console.log(search)
         let url = 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx?kw='+search
     console.log(url)
         
-         request.get(url).set(base1).end((error,res)=>{
-         console.log(res)})
+         request.get(url).set(garbageBase).end((error,res)=>{
+               let c1 = response.headers['set-cookie'];
+              request.get(url).set(garbageBase).set('Cookie', c1).end((err,resp)=>{
+                      console.log(res)
+              })
+ 
+         })
         })
 //公交接口查询实时
 app.get('/bus/:sid/:direction/:stopId', (req, res, next) => {
