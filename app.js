@@ -419,11 +419,9 @@ Referer:url1,
 'Upgrade-Insecure-Requests': 1,
 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
 }
-         request.get(url).set(garbageBase).end((error,res)=>{
+         request.get(url).end((error,res)=>{
               let c1 = res.headers['set-cookie'].join(',').match(/(ASP.NET_SessionId=.+?);/)[1];
-             console.log(c1)
-              console.log(url1)
-              request.get(url1).set(garbageBase1).set('Cookie', c1).end((err,resp)=>{
+              request.get(url1).set('Cookie', c1).end((err,resp)=>{
                       console.log(resp)
               })
  
