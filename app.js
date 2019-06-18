@@ -418,7 +418,7 @@ Referer:url1,
 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
 }
          request.get(url).set(garbageBase).end((error,res)=>{
-               let c1 = response.headers['set-cookie'];
+               let c1 = res.headers['set-cookie'];
              console.log(c1)
               request.get(url1).set(garbageBase1).set('Cookie', c1).end((err,resp)=>{
                       console.log(resp)
