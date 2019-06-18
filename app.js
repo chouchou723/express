@@ -395,8 +395,11 @@ app.get('/busname/:name', (req, res, next) => {
     //获取垃圾分类
 app.get('/searchGarbage/:search',(req,res,next)=>{
         let search = req.params.search;
+    console.log(search)
         let url = 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx?kw='+search
-         request.get(url).end((error,res)=>{
+    console.log(url)
+        
+         request.get(url).set(base1).end((error,res)=>{
          console.log(res)})
         })
 //公交接口查询实时
