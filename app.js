@@ -422,6 +422,8 @@ app.get('/searchGarbage/:search',(req,res,next)=>{
          request.get(url).end((error,res)=>{
               let c1 = res.headers['set-cookie'].join(',').match(/(ASP.NET_SessionId=.+?);/)[1];
               request.get(url1).set('Cookie', c1).end((err,resp)=>{
+                    let arr = resp.text
+            let $ = cheerio.load(arr);
                   let title =  $('.info p span').eq(0).text().trim();
                   let content =  $('.kp2 title div').eq(0).text().trim();
                   let desc =  $('.kp2 .desc').eq(0).text().trim();
