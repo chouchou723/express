@@ -73,6 +73,7 @@ app.get('/weather/:city', (req, res, next) => {
         })
         .catch(err => console.log(err))
 });
+
 //获取全部公交列表
 app.get('/allbuslist', (req, res, next) => {
     let url = 'https://shanghaicity.openservice.kankanews.com/public/bus';
@@ -391,6 +392,13 @@ app.get('/busname/:name', (req, res, next) => {
         'Upgrade-Insecure-Requests': 1,
         'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
     }
+    //获取垃圾分类
+app.get('/searchGarbage/:search',(req,res,next)=>{
+        let search = req.params.search;
+        let url = 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx?kw='+search
+         request.get(url).end((error,res)=>{
+         console.log(res)})
+        })
 //公交接口查询实时
 app.get('/bus/:sid/:direction/:stopId', (req, res, next) => {
     let sid = req.params.sid;
@@ -553,6 +561,7 @@ app.get('/movie/subject/:id', (req, res, next) => {
         })
         .catch(err => console.log(err))
 });
+
 //电影
 app.get('/movie/:type', (req, res, next) => {
     let type = req.params.type;
