@@ -427,8 +427,13 @@ app.get('/searchGarbage/:search',(req,res,next)=>{
                   let title =  $('.info p span').eq(0).text().trim();
                   let content =  $('.kp2 title div').eq(0).text().trim();
                   let desc =  $('.kp2 .desc').eq(0).text().trim();
-                  let li =  $('.kp2 ul li').join(',').text().trim();
-                      console.log(title,content,desc,li)
+//                   let li =  $('.kp2 ul li').join(',').text().trim();
+                 let li =[]
+                 $('.kp2 ul li').each(function(i, elem){
+  li[i]= $(this).text();});
+
+let list = li.join(', ');
+                      console.log(title,content,desc,list)
               })
  
          })
