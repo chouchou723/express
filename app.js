@@ -419,8 +419,8 @@ app.get('/searchGarbage/:search',(req,res,next)=>{
 // 'Upgrade-Insecure-Requests': 1,
 // 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
 // }
-         request.get(url).end((error,res)=>{
-              let c1 = res.headers['set-cookie'].join(',').match(/(ASP.NET_SessionId=.+?);/)[1];
+         request.get(url).end((error,respo)=>{
+              let c1 = respo.headers['set-cookie'].join(',').match(/(ASP.NET_SessionId=.+?);/)[1];
               request.get(url1).set('Cookie', c1).end((err,resp)=>{
                     let arr = resp.text
             let $ = cheerio.load(arr);
@@ -433,7 +433,20 @@ app.get('/searchGarbage/:search',(req,res,next)=>{
   li[i]= $(this).text();});
 
 let list = li.join(', ');
-                      console.log(title,content,desc,list)
+//                       console.log(title,content,desc,list)
+                    if (err) {
+                        res.sendStatus(500);
+                        return next(err);
+                    }
+                  let d = {
+                      title,content,desc,list
+                  }
+                   let fdata = JSON.parse(JSON.stringify(d));
+                    if (!fdata) {
+                        res.sendStatus(500);
+                        return
+                    }
+                    res.json(fdata)
               })
  
          })
