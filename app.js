@@ -407,7 +407,7 @@ app.get('/searchGarbage/:search',(req,res,next)=>{
     console.log(search)
       let url = 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx'
         let url1 = 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx?kw='+search
-    console.log(url)
+    console.log(url1)
           var garbageBase1 = {
     Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
 'Accept-Encoding': 'gzip, deflate',
@@ -418,8 +418,9 @@ Referer:url1,
 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
 }
          request.get(url).set(garbageBase).end((error,res)=>{
-               let c1 = res.headers['set-cookie'].join(',');
+              let c1 = res.headers['set-cookie'].join(',').match(/(ASP.NET_SessionId=.+?);/)[1];
              console.log(c1)
+              console.log(url1)
               request.get(url1).set(garbageBase1).set('Cookie', c1).end((err,resp)=>{
                       console.log(resp)
               })
