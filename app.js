@@ -403,10 +403,12 @@ Referer: 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.asp
 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
 }
 app.get('/searchGarbage/:search',(req,res,next)=>{
+    
         let search = req.params.search;
-    console.log(search)
+     var str =encodeURI(search);
+    console.log(str)
       let url = 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx'
-        let url1 = 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx?kw='+search
+        let url1 = 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx?kw='+str
     console.log(url1)
           var garbageBase1 = {
     Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
