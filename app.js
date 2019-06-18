@@ -393,36 +393,40 @@ app.get('/busname/:name', (req, res, next) => {
         'User-Agent': 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; de-de) AppleWebKit/534.15+ (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4'
     }
     //获取垃圾分类
-    var garbageBase = {
-    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-'Accept-Encoding': 'gzip, deflate',
-'Accept-Language': 'zh-CN,zh;q=0.9',
-Host:'weixin.sh-service.com',
-Referer: 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx',
-'Upgrade-Insecure-Requests': 1,
-'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
-}
+//     var garbageBase = {
+//     Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+// 'Accept-Encoding': 'gzip, deflate',
+// 'Accept-Language': 'zh-CN,zh;q=0.9',
+// Host:'weixin.sh-service.com',
+// Referer: 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx',
+// 'Upgrade-Insecure-Requests': 1,
+// 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
+// }
 app.get('/searchGarbage/:search',(req,res,next)=>{
     
         let search = req.params.search;
      var str =encodeURI(search);
-    console.log(str)
+//     console.log(str)
       let url = 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx'
         let url1 = 'http://weixin.sh-service.com/sites/feiguan/trashTypes_2/TrashQuery.aspx?kw='+str
-    console.log(url1)
-          var garbageBase1 = {
-    Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
-'Accept-Encoding': 'gzip, deflate',
-'Accept-Language': 'zh-CN,zh;q=0.9',
-Host:'weixin.sh-service.com',
-Referer:url1,
-'Upgrade-Insecure-Requests': 1,
-'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
-}
+//     console.log(url1)
+//           var garbageBase1 = {
+//     Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+// 'Accept-Encoding': 'gzip, deflate',
+// 'Accept-Language': 'zh-CN,zh;q=0.9',
+// Host:'weixin.sh-service.com',
+// Referer:url1,
+// 'Upgrade-Insecure-Requests': 1,
+// 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
+// }
          request.get(url).end((error,res)=>{
               let c1 = res.headers['set-cookie'].join(',').match(/(ASP.NET_SessionId=.+?);/)[1];
               request.get(url1).set('Cookie', c1).end((err,resp)=>{
-                      console.log(resp)
+                  let title =  $('.info p span').eq(0).text().trim();
+                  let content =  $('.kp2 title div').eq(0).text().trim();
+                  let desc =  $('.kp2 .desc').eq(0).text().trim();
+                  let li =  $('.kp2 ul li').join(',').text().trim();
+                      console.log(title,content,desc,li)
               })
  
          })
