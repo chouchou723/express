@@ -80,20 +80,20 @@ app.get('/allbuslist', (req, res, next) => {
     axios.get(url).then(json => {
         let d = json.data;
         let $ = cheerio.load(d);
-        console.log(d)
+       // console.log(d)
         let list
         $('script').each(function (i, e) {
-            		console.log($(this).html())
+            	//	console.log($(this).html())
             if ($(this).html().indexOf('119') > -1) {
                 let d = ($(this).html().split('[')[1].split(']')[0]);
-                		console.log(eval('('+('['+d+']')+')'))
+                	//	console.log(eval('('+('['+d+']')+')'))
                 // 				let t = $(this).html().replace(/[\r\n]/g,'').match(/data.*/g)[0].split('=')[1].replace(/\s/g,'');
                 // 				console.log(t)
                 list = eval('(' + ('[' + d + ']') + ')') //(t.split('[')[1].split(']')[0]).replace(/\'/g,'').split(',')
                 // 	return;
             }
         })
-       		console.log(list,1)
+       		//console.log(list,1)
         return list
     }).then((list) => {
         // 		   let fdata = JSON.parse(JSON.stringify(list));
@@ -127,7 +127,7 @@ var bba =  {  'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,im
 //公交站点
 app.get('/busstop/:sid', (req, res, next) => {
     let sid = req.params.sid;
-    console.log(sid,1)
+  //  console.log(sid,1)
     let data = {}
     let url = `https://shanghaicity.openservice.kankanews.com/public/bus/mes/sid/${sid}`
 //     let bba = {  'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -157,7 +157,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 //                 return start_stop
 //             }
             let end_stop = $('.upgoing p span').eq(1).text().trim();
-            	  console.log(end_stop,123)
+            	//  console.log(end_stop,123)
             let start_earlytime = $('.upgoing .time .s').first().text().trim();
             let start_latetime = $('.upgoing .time .m').first().text().trim();
             let end_earlytime = $('.upgoing .time .s').eq(1).text().trim();
@@ -333,7 +333,7 @@ app.get('/busname/:name', (req, res, next) => {
  var name = req.params.name;//.split('%').length===1?req.params.name.split('%')[0]:req.params.name.split('%')[0]+'路';
 //    let name = rlencode.parse(‘idnum:’+req.params.name, {charset: 'utf-8'});
 //     var aname = rlencode(name, 'utf-8');
-    console.log(name);
+  //  console.log(name);
 //     console.log(rlencode(name, 'utf8'));
 //    console.log( rlencode.decode(aname, 'utf-8')); 
 //     let base1 = {
@@ -354,7 +354,7 @@ app.get('/busname/:name', (req, res, next) => {
 //         .type("form")
 
    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).type('form').send({ idnum:name}).then((resp) => {
-        console.log(resp)
+     //   console.log(resp)
 //            if (err) {
 //                res.sendStatus(500);
 //                return next(err);
@@ -426,9 +426,9 @@ app.get('/searchGarbage/:search',(req,res,next)=>{
               request.get(url1).set('Cookie', c1).end((err,resp)=>{
                     let arr = resp.text
             let $ = cheerio.load(arr);
-                  let title =  $('.info p span').eq(0).text().trim();
-                  let content =  $('.kp2 .title div').eq(0).text().trim();
-                  let desc =  $('.kp2 .desc').eq(0).text().trim();
+                  let title =  $('#rm_typekey').eq(0).text().trim();
+                  let content =  $('#rm_note_1').eq(0).text().trim();
+                  let desc =  $('#rm_note_1').eq(0).text().trim();
 //                   let li =  $('.kp2 ul li').join(',').text().trim();
                  let li =[]
                  $('.kp2 ul li').each(function(i, elem){
