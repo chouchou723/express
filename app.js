@@ -426,6 +426,7 @@ app.get('/searchGarbage/:search',(req,res,next)=>{
               request.get(url1).set('Cookie', c1).end((err,resp)=>{
                     let arr = resp.text
             let $ = cheerio.load(arr);
+                  console.log($)
                   let title =  $('#rm_typekey').eq(0).text().trim();
                   let content =  $('#rm_note_1').eq(0).text().trim();
                   let desc =  $('#rm_note_1').eq(0).text().trim();
