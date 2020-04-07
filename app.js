@@ -409,8 +409,8 @@ app.get('/searchGarbage/:search',(req,res,next)=>{
         let search = req.params.search;
      var str =encodeURI(search);
 //     console.log(str)
-      let url = 'http://trash.lhsr.cn/sites/feiguan/trashTypes_2/TrashQuery_h5.aspx'
-        let url1 = 'http://trash.lhsr.cn/sites/feiguan/trashTypes_2/TrashQuery_h5.aspx?kw='+str
+      let url = 'http://trash.lhsr.cn/sites/feiguan/trashTypes_3/TrashQuery.aspx'
+        let url1 = 'http://trash.lhsr.cn/sites/feiguan/trashTypes_3/TrashQuery.aspx?kw='+str
 //     console.log(url1)
 //           var garbageBase1 = {
 //     Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
