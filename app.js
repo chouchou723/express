@@ -427,9 +427,21 @@ app.get('/searchGarbage/:search',(req,res,next)=>{
                     let arr = resp.text
             let $ = cheerio.load(arr);
                   console.log(arr)
-                  let title =  $('#rm_typekey').eq(0).text().trim();
-                  let content =  $('#rm_note_1').eq(0).text().trim();
-                  let desc =  $('#rm_note_1').eq(0).text().trim();
+                  let listaa
+                      $('script').each(function (i, e) {
+            	//	console.log($(this).html())
+            if ($(this).html().indexOf(str) > -1) {
+                let d = ($(this).html().split('(')[1].split(')')[0]);
+                	//	console.log(eval('('+('['+d+']')+')'))
+                // 				let t = $(this).html().replace(/[\r\n]/g,'').match(/data.*/g)[0].split('=')[1].replace(/\s/g,'');
+                // 				console.log(t)
+                listaa = eval('(' + ('[' + d + ']') + ')') //(t.split('[')[1].split(']')[0]).replace(/\'/g,'').split(',')
+                // 	return;
+            }
+        })
+                  let title =  listaa[1];//$('#rm_typekey').eq(0).text().trim();
+                  let content =  listaa[6]//$('#rm_note_1').eq(0).text().trim();
+                  let desc =  listaa[6]//$('#rm_note_1').eq(0).text().trim();
 //                   let li =  $('.kp2 ul li').join(',').text().trim();
                  let li =[]
                  $('.kp2 ul li').each(function(i, elem){
