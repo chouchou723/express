@@ -80,6 +80,7 @@ app.get('/allbuslist', (req, res, next) => {
     axios.get(url).then(json => {
         let d = json.data;
         let $ = cheerio.load(d);
+        console.log(d)
         let list
         $('script').each(function (i, e) {
             // 			console.log($(this).html())
