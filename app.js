@@ -83,7 +83,7 @@ app.get('/allbuslist', (req, res, next) => {
         console.log(d)
         let list
         $('script').each(function (i, e) {
-            // 			console.log($(this).html())
+            		console.log($(this).html())
             if ($(this).html().indexOf('119') > -1) {
                 let d = ($(this).html().split('[')[1].split(']')[0]);
                 // 				console.log(eval('('+('['+d+']')+')'))
@@ -93,7 +93,7 @@ app.get('/allbuslist', (req, res, next) => {
                 // 	return;
             }
         })
-        // 		console.log(list)
+       		console.log(list,1)
         return list
     }).then((list) => {
         // 		   let fdata = JSON.parse(JSON.stringify(list));
