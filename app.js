@@ -155,7 +155,7 @@ app.get('/busstop/:sid', (req, res, next) => {
 //                 return start_stop
 //             }
             let end_stop = $('.upgoing p span').eq(1).text().trim();
-            // 	  console.log(end_stop,123)
+            	  console.log(end_stop,123)
             let start_earlytime = $('.upgoing .time .s').first().text().trim();
             let start_latetime = $('.upgoing .time .m').first().text().trim();
             let end_earlytime = $('.upgoing .time .s').eq(1).text().trim();
