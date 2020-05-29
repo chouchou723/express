@@ -59,8 +59,8 @@ app.use('/', index);
 // })
 app.get('/services/api/monitor/monitorStatus', (req, res, next) => {
     let arr = {
-        reslutCode:0,
-        WIstate:'ok',
+        resultCode:0,
+        WIState:'ok',
         clientIP:'127.0.0.1'
     }
     console.log(arr)
