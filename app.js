@@ -57,6 +57,15 @@ app.use('/', index);
 // app.get('/drrr',(req,res)=>{
 //   res.sendFile(__dirname+'/public/client/index.html')
 // })
+app.get('/services/api/monitor/monitorStatus', (req, res, next) => {
+    let arr = {
+        reslutCode:0,
+        WIstate:'ok',
+        clientIP:'127.0.0.1'
+    }
+    console.log(arr)
+    res.json(arr);
+});
 //天气接口
 app.get('/weather/:city', (req, res, next) => {
     let city = req.params.city;
