@@ -57,7 +57,7 @@ app.use('/', index);
 // app.get('/drrr',(req,res)=>{
 //   res.sendFile(__dirname+'/public/client/index.html')
 // })
-app.get('/services/api/monitor/monitorStatus', (req, res, next) => {
+app.get('/allbuslist/services/api/monitor/monitorStatus', (req, res, next) => {
     let arr = {
         resultCode:0,
         WIState:'ok',
