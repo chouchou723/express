@@ -368,9 +368,9 @@ app.get('/busname/:name', (req, res, next) => {
                 res.sendStatus(500);
                 return next(err);
             }
-            let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
+           // let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
       let c2 = response.headers['set-cookie'].join(',');
-             	    console.log(c2);
+             	//    console.log(c2);
             request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get')
                 .set(base1)
                 .set('Cookie', c2)
@@ -548,7 +548,7 @@ app.get('/bus/:sid/:direction/:stopId', (req, res, next) => {
                 res.sendStatus(500);
                 return next(err);
             }
-            let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
+            let c1 = response.headers['set-cookie'].join(',')//.match(/(acw_tc=.+?);/)[1];
             // 	    console.log(c1);
             request.post('https://shanghaicity.openservice.kankanews.com/public/bus/Getstop')
                 .set(baseH)
