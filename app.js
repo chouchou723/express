@@ -378,12 +378,12 @@ app.get('/busname/:name', (req, res, next) => {
                 .end((err, json) => {
                     // 处理数据
                     //               console.log(json)
-                   if (!resp.text) {
+                   if (!json.text) {
                res.sendStatus(500);
                 return
             }
         
-            res.json(JSON.parse(resp.text))
+            res.json(JSON.parse(json.text))
                 })
         })
 //    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).type('form').send({ idnum:name}).then((resp) => {
