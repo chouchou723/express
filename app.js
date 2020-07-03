@@ -361,22 +361,46 @@ app.get('/busname/:name', (req, res, next) => {
 // //         'X-Requested-With': 'XMLHttpRequest'
 //     }
 //         .type("form")
-
-   request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).type('form').send({ idnum:name}).then((resp) => {
-        console.log(resp)
-//            if (err) {
-//                res.sendStatus(500);
-//                return next(err);
-//             }
-//                 console.log(resp)
-//             arr = resp.data;
-            if (!resp.text) {
+  request.get('https://shanghaicity.openservice.kankanews.com/public/bus')
+        .set(base1)
+        .end((err, response) => {
+            if (err) {
+                res.sendStatus(500);
+                return next(err);
+            }
+            let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
+            // 	    console.log(c1);
+            request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get')
+                .set(base1)
+                .set('Cookie', c1)
+                .type("form")
+                .send({ idnum:name})
+                .end((err, json) => {
+                    // 处理数据
+                    //               console.log(json)
+                   if (!resp.text) {
                res.sendStatus(500);
                 return
             }
         
             res.json(JSON.parse(resp.text))
-        }).catch(err=>{console.log(err)})
+                })
+        })
+//    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).type('form').send({ idnum:name}).then((resp) => {
+//         console.log(resp)
+// //            if (err) {
+// //                res.sendStatus(500);
+// //                return next(err);
+// //             }
+// //                 console.log(resp)
+// //             arr = resp.data;
+//             if (!resp.text) {
+//                res.sendStatus(500);
+//                 return
+//             }
+        
+//             res.json(JSON.parse(resp.text))
+//         }).catch(err=>{console.log(err)})
 
 
 })
