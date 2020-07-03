@@ -330,7 +330,7 @@ var base1 = {
         //   'Cache-Control':'no-cache',
 //         'Connection': 'keep-alive',
 //         'Content-Length': 42,
-//         'Host': 'shanghaicity.openservice.kankanews.com',
+        'Host': 'shanghaicity.openservice.kankanews.com',
         Origin: 'https://shanghaicity.openservice.kankanews.com',
         'Referer': 'https://shanghaicity.openservice.kankanews.com/public/bus',
         // Pragma:'no-cache',
@@ -369,10 +369,11 @@ app.get('/busname/:name', (req, res, next) => {
                 return next(err);
             }
             let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
-            // 	    console.log(c1);
+      let c2 = response.headers['set-cookie'].join(',');
+             	    console.log(c2);
             request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get')
                 .set(base1)
-                .set('Cookie', c1)
+                .set('Cookie', c2)
                 .type("form")
                 .send({ idnum:name})
                .then((resp) => {
