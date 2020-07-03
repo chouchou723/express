@@ -375,16 +375,21 @@ app.get('/busname/:name', (req, res, next) => {
                 .set('Cookie', c1)
                 .type("form")
                 .send({ idnum:name})
-                .end((err, json) => {
-                    // 处理数据
-                    //               console.log(json)
-                   if (!json.text) {
+               .then((resp) => {
+        console.log(resp)
+//            if (err) {
+//                res.sendStatus(500);
+//                return next(err);
+//             }
+//                 console.log(resp)
+//             arr = resp.data;
+            if (!resp.text) {
                res.sendStatus(500);
                 return
             }
         
-            res.json(JSON.parse(json.text))
-                })
+            res.json(JSON.parse(resp.text))
+        }).catch(err=>{console.log(err)})
         })
 //    request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get').set(base1).type('form').send({ idnum:name}).then((resp) => {
 //         console.log(resp)
