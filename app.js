@@ -333,7 +333,7 @@ var base1 = {
     ':authority': 'shanghaicity.openservice.kankanews.com',
     ':method': 'GET',
 ':path': '/public/bus',
-':scheme': 'https'
+':scheme': 'https',
         'Host': 'shanghaicity.openservice.kankanews.com',
         Origin: 'https://shanghaicity.openservice.kankanews.com',
         'Referer': 'https://shanghaicity.openservice.kankanews.com/public/bus',
