@@ -369,6 +369,7 @@ app.get('/busname/:name', (req, res, next) => {
                 return next(err);
             }
            // let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
+      console.log(response.headers['set-cookie'])
       let c2 = response.headers['set-cookie'].join(',');
              	//    console.log(c2);
             request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get')
@@ -377,7 +378,7 @@ app.get('/busname/:name', (req, res, next) => {
                 .type("form")
                 .send({ idnum:name})
                .then((resp) => {
-        console.log(resp)
+       // console.log(resp)
 //            if (err) {
 //                res.sendStatus(500);
 //                return next(err);
