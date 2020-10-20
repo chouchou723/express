@@ -330,6 +330,10 @@ var base1 = {
         //   'Cache-Control':'no-cache',
 //         'Connection': 'keep-alive',
 //         'Content-Length': 42,
+    ':authority': 'shanghaicity.openservice.kankanews.com',
+    ':method': 'GET',
+':path': '/public/bus',
+':scheme': 'https'
         'Host': 'shanghaicity.openservice.kankanews.com',
         Origin: 'https://shanghaicity.openservice.kankanews.com',
         'Referer': 'https://shanghaicity.openservice.kankanews.com/public/bus',
@@ -369,7 +373,7 @@ app.get('/busname/:name', (req, res, next) => {
                 return next(err);
             }
            // let c1 = response.headers['set-cookie'].join(',').match(/(acw_tc=.+?);/)[1];
-      console.log(response.headers['set-cookie'])
+      console.log(response.headers['set-cookie'],999)
       let c2 = response.headers['set-cookie'].join(',');
              	//    console.log(c2);
             request.post('https://shanghaicity.openservice.kankanews.com/public/bus/get')
