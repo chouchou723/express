@@ -351,7 +351,7 @@ app.get('/busname/:name', (req, res, next) => {
  var name = req.params.name;//.split('%').length===1?req.params.name.split('%')[0]:req.params.name.split('%')[0]+'路';
 //    let name = rlencode.parse(‘idnum:’+req.params.name, {charset: 'utf-8'});
 //     var aname = rlencode(name, 'utf-8');
-  //  console.log(name);
+   console.log(name);
 //     console.log(rlencode(name, 'utf8'));
 //    console.log( rlencode.decode(aname, 'utf-8')); 
 //     let base1 = {
@@ -373,6 +373,7 @@ app.get('/busname/:name', (req, res, next) => {
   request.get('https://shanghaicity.openservice.kankanews.com/public/bus')
         .set(base1)
         .end((err, response) => {
+      console.log(response,123)
             if (err) {
                 res.sendStatus(500);
                 return next(err);
